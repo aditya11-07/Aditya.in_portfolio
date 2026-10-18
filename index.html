@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditya Pandey | Computer Science & Embedded Systems Engineer</title>
+  <meta name="description" content="Portfolio of Aditya Pandey — Computer Science & Engineering student at PSIT Kanpur, specializing in Embedded Systems, Avionics, IoT, and Full Stack Development." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="/src/styles/ojha.css" />
+  <link rel="stylesheet" href="/src/styles/timeline.css" />
+  <link rel="stylesheet" href="/src/styles/customizer.css" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aditya Pandey | Embedded Systems & Software Engineer" />
+  <meta property="og:description" content="Computer Science & Engineering at PSIT Kanpur. Rocketry Avionics, Real-Time Embedded Systems, and Web Applications." />
+  <meta property="og:image" content="/images/aditya_rocket.png" />
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="prog"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="nav">
+    <a href="#hero" class="nav-brand">
+      <!-- 📸 PHOTO 1: NAVBAR AVATAR (Change src to your photo: e.g. /images/your_photo.jpg) -->
+      <div class="nav-avatar">
+        <img src="/images/Aditya_Profile.png" alt="Aditya Pandey" style="object-position: 50% 18%;" />
+      </div>
+      <span class="nav-name">Aditya Pandey</span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><button type="button" class="nav-resume-btn" id="navResumeBtn">Resume / CV</button></li>
+    </ul>
+
+    <!-- Mobile Nav Toggle -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+      <div class="mobile-nav-panel">
+        <ul class="mobile-nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact" style="color: var(--primary);">Contact</a></li>
+          <li><button type="button" class="mobile-resume-btn" id="mobileResumeBtn">View Resume / CV</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ 1. HERO SECTION ═══ -->
+  <section class="hero-section" id="hero">
+    <!-- Animated Marquee Background -->
+    <div class="marquee-container">
+      <div class="marquee-left">
+        <div class="marquee-text-muted">CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT&nbsp;</div>
+        <div class="marquee-text-muted">CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT&nbsp;</div>
+      </div>
+      <div class="marquee-right">
+        <div class="marquee-text-bold">BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS&nbsp;</div>
+        <div class="marquee-text-bold">BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS&nbsp;</div>
+      </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-wrapper">
+      <div class="hero-pill-badge">
+        <span class="hero-pill-dot"></span>
+        <span>Open for Embedded Systems & Software Roles</span>
+      </div>
+
+      <h1 class="hero-heading">
+        Engineering Reliable <br />
+        <span class="accent">Embedded & Web Systems</span>
+      </h1>
+
+      <p class="hero-subheading">
+        Hi, I'm <strong>Aditya Pandey</strong>. Computer Science & Engineering student at PSIT Kanpur. Bridging hardware and software through rocketry avionics, real-time telemetry, and high-performance applications.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">
+          Explore My Projects
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#timeline" class="btn-secondary">
+          View Journey Timeline
+        </a>
+        <button type="button" class="btn-hero-resume" id="heroResumeBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume / CV
+        </button>
+      </div>
+
+      <!-- Real Impact Highlights Metric Strip -->
+      <div class="hero-metrics-strip">
+        <div class="hero-metric-item">
+          <span class="hero-metric-val">IN-SPACe / ISRO</span>
+          <span class="hero-metric-lbl">National Finalist</span>
+        </div>
+        <div class="hero-metric-item">
+          <span class="hero-metric-val">~1000m</span>
+          <span class="hero-metric-lbl">Avionics & Telemetry</span>
+        </div>
+        <div class="hero-metric-item">
+          <span class="hero-metric-val">FlyRank AI</span>
+          <span class="hero-metric-lbl">Frontend Developer</span>
+        </div>
+        <div class="hero-metric-item">
+          <span class="hero-metric-val">PSIT Kanpur</span>
+          <span class="hero-metric-lbl">B.Tech CSE (2025–29)</span>
+        </div>
+      </div>
+
+      <!-- Hero Visual Representation -->
+      <!-- 📸 PHOTO 2: HERO MAIN PHOTO (Change src to your photo: e.g. /images/your_photo.jpg) -->
+      <div class="hero-image-stage">
+        <div class="hero-image-arch"></div>
+        <div class="hero-image-frame">
+          <img src="/images/aditya_rocket.png" alt="Aditya Pandey with SUDARSHAN TRISHUL Rocket" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. ABOUT SECTION ═══ -->
+  <section class="about-section" id="about">
+    <div class="corner-curve-tl"></div>
+    <div class="corner-curve-br"></div>
+
+    <div class="about-container">
+      <!-- 3D Layered Avatar Presentation -->
+      <!-- 📸 PHOTO 3: ABOUT PROFILE PHOTO (Change src to your photo: e.g. /images/your_photo.jpg) -->
+      <div class="about-visual">
+        <div class="about-bg-shape-1"></div>
+        <div class="about-bg-pillar"></div>
+        <div class="about-avatar-photo">
+          <img src="/images/Aditya_Profile.png" alt="Aditya Pandey" />
+        </div>
+      </div>
+
+      <!-- About Info -->
+      <div class="about-content">
+        <h2 class="about-title">Hello, I'm <span>Aditya Pandey</span></h2>
+        <h3 class="about-role">Computer Science Engineer | Embedded Systems & Full Stack</h3>
+
+        <div class="about-text">
+          <p>
+            I am a Computer Science & Engineering student at <strong>Pranveer Singh Institute of Technology (PSIT), Kanpur</strong>. I have a deep passion for embedded systems, rocketry avionics, IoT telemetry, and modern software engineering.
+          </p>
+          <p>
+            My work ranges from designing microelectronics and multi-sensor avionics payloads for <strong>CanSat / IN-SPACe</strong> rocketry competitions, to building real-time ground control stations and reactive web interfaces at <strong>FlyRank AI</strong>.
+          </p>
+          <p>
+            I thrive at the intersection of low-level microcontroller protocols (UART, I²C, SPI, LoRa) and high-level software architectures, writing clean code and building resilient physical systems.
+          </p>
+        </div>
+
+        <!-- Verified Social Links -->
+        <div class="about-socials">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/aditya-pandey-9a1811330" target="_blank" rel="noopener noreferrer" class="social-icon-btn linkedin" title="LinkedIn: aditya-pandey-9a1811330">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/aditya11-07" target="_blank" rel="noopener noreferrer" class="social-icon-btn github" title="GitHub: aditya11-07">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.235 1.84 1.235 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.305.76-1.605-2.665-.303-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 0 1 3.003-.403c1.02.005 2.047.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.874.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.609-2.804 5.624-5.476 5.921.43.372.814 1.103.814 2.222 0 1.606-.015 2.902-.015 3.293 0 .322.218.694.825.576C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:adityavaibhavpandey@gmail.com?subject=Connecting%20with%20Aditya%20Pandey&body=Hi%20Aditya%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20connect%20with%20you." class="social-icon-btn email" title="Email: adityavaibhavpandey@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. TIMELINE / JOURNEY SECTION (NEW) ═══ -->
+  <section class="timeline-section" id="timeline">
+    <div class="timeline-container">
+      <div class="section-header" style="text-align: center;">
+        <h2 class="section-heading-lg">My Engineering <br /><span>Journey & Milestones</span></h2>
+        <p class="section-subtitle-text" style="margin: 0 auto;">A chronological roadmap spanning rocketry avionics, embedded IoT, software development, and academic foundations.</p>
+      </div>
+
+      <!-- Interactive Category Filter Buttons -->
+      <div class="timeline-filters" id="timelineFilters">
+        <button class="timeline-filter-btn active" data-filter="all">
+          <span>All Milestones</span>
+          <span class="timeline-filter-count" id="count-all">6</span>
+        </button>
+        <button class="timeline-filter-btn" data-filter="rocketry">
+          <span>🚀 Rocketry & Avionics</span>
+          <span class="timeline-filter-count" id="count-rocketry">3</span>
+        </button>
+        <button class="timeline-filter-btn" data-filter="software">
+          <span>💻 Software & Dev</span>
+          <span class="timeline-filter-count" id="count-software">1</span>
+        </button>
+        <button class="timeline-filter-btn" data-filter="education">
+          <span>🎓 Education & Roots</span>
+          <span class="timeline-filter-count" id="count-education">2</span>
+        </button>
+      </div>
+
+      <!-- Main Animated Timeline Spine -->
+      <div class="timeline-track-wrapper" id="timelineTrack">
+        <!-- Rendered dynamically by main.js from portfolioData.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. SKILLS SECTION ═══ -->
+  <section class="section-wrapper" id="skills">
+    <div class="section-header">
+      <h2 class="section-heading-lg">My Technical <br /><span>Background Skills</span></h2>
+      <p class="section-subtitle-text">The hardware toolchain, microcontrollers, and software stack I rely on.</p>
+    </div>
+
+    <!-- Horizontal Pill Capsule Carousel -->
+    <div class="skills-carousel-track" id="skillsCarouselTrack">
+      <!-- C / C++ -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><path fill="#00599c" d="M118.766 95.82c.89-1.543 1.441-3.28 1.441-4.843V36.78c0-1.558-.55-3.297-1.441-4.84l-55.32 31.94Zm0 0"></path><path fill="#004482" d="m68.36 126.586 46.933-27.094c1.352-.781 2.582-2.129 3.473-3.672l-55.32-31.94L8.12 95.82c.89 1.543 2.121 2.89 3.473 3.672l46.933 27.094c2.703 1.562 7.13 1.562 9.832 0Zm0 0"></path><path fill="#659ad2" d="M118.766 31.941c-.891-1.546-2.121-2.894-3.473-3.671L68.359 1.172c-2.703-1.563-7.129-1.563-9.832 0L11.594 28.27C8.89 29.828 6.68 33.66 6.68 36.78v54.196c0 1.562.55 3.3 1.441 4.843L63.445 63.88Zm0 0"></path><path fill="#fff" d="M63.445 26.035c-20.867 0-37.843 16.977-37.843 37.844s16.976 37.844 37.843 37.844c13.465 0 26.024-7.247 32.77-18.91L79.84 73.335c-3.38 5.84-9.66 9.465-16.395 9.465-10.433 0-18.922-8.488-18.922-18.922 0-10.434 8.49-18.922 18.922-18.922 6.73 0 13.017 3.629 16.39 9.465l16.38-9.477c-6.75-11.664-19.305-18.91-32.77-18.91zM92.88 57.57v4.207h-4.207v4.203h4.207v4.207h4.203V65.98h4.203v-4.203h-4.203V57.57H92.88zm15.766 0v4.207h-4.204v4.203h4.204v4.207h4.207V65.98h4.203v-4.203h-4.203V57.57h-4.207z"></path></svg>
+        </div>
+        <span class="skill-capsule-name">C / C++</span>
+      </div>
+
+      <!-- Python -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><path fill="#3776ab" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"></path><path fill="#ffd43b" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"></path></svg>
+        </div>
+        <span class="skill-capsule-name">Python</span>
+      </div>
+
+      <!-- ESP32 & Embedded -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ea5b25" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </div>
+        <span class="skill-capsule-name">ESP32 / MCU</span>
+      </div>
+
+      <!-- Arduino / Raspberry Pi -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><path fill="#00979D" d="M110.4 46.1c-9.6-9.6-22.3-14.8-35.8-14.8-10.7 0-20.8 3.3-29.3 9.4-4-2.9-8.7-4.8-13.8-5.6-2.5-.4-5-.6-7.5-.6-13.5 0-26.2 5.2-35.8 14.8C-1.5 59-1.5 79.9 8.2 92.8c9.6 9.6 22.3 14.8 35.8 14.8 13.5 0 26.2-5.2 35.8-14.8 9.6 9.6 22.3 14.8 35.8 14.8 13.5 0 26.2-5.2 35.8-14.8 19.7-19.7 19.7-51.6-.4-66.7zM44 98.4c-9.7 0-18.8-3.8-25.7-10.6-14.1-14.1-14.1-37.1 0-51.3 6.9-6.9 16-10.6 25.7-10.6 9.7 0 18.8 3.8 25.7 10.6 14.1 14.1 14.1 37.1 0 51.3-6.9 6.8-16 10.6-25.7 10.6zm65.2-10.6c-6.9 6.9-16 10.6-25.7 10.6-9.7 0-18.8-3.8-25.7-10.6-14.1-14.1-14.1-37.1 0-51.3 6.9-6.9 16-10.6 25.7-10.6 9.7 0 18.8 3.8 25.7 10.6 14.1 14.1 14.1 37.1 0 51.3z"></path></svg>
+        </div>
+        <span class="skill-capsule-name">Arduino & RPi</span>
+      </div>
+
+      <!-- React -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"></circle><path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8z"></path></g></svg>
+        </div>
+        <span class="skill-capsule-name">React</span>
+      </div>
+
+      <!-- Node.js & JS -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><path fill="#83CD29" d="M64 4.5 10.9 35.1v61.4L64 127l53.1-30.5V35.1L64 4.5z"></path></svg>
+        </div>
+        <span class="skill-capsule-name">Node & JS</span>
+      </div>
+
+      <!-- Docker -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 128 128"><path fill="#2496ED" d="M123.6 47.9c-2-1.5-7.7-2.3-12.7-.4-1.1-6.1-5.6-8.9-5.6-8.9s-7.2-4.1-19.2 3.8c-2.3-.9-5.6-1.5-8.8-1.7V39h-9.8v-8.2H57.7V39h-9.8v-8.2H38.1V39h-9.8V22.6h-9.8v25.2C8.6 50.1 1.1 57.5.1 69c-1.3 14.5 8.7 27.6 23.3 28.9 45.6 4.1 77.2-1.9 93.9-27.1 9.9-14.8 8.8-21.3 6.3-22.9z"></path></svg>
+        </div>
+        <span class="skill-capsule-name">Docker</span>
+      </div>
+
+      <!-- Sensors & LoRa / XBee -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ea5b25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.93 4.93a10 10 0 0 1 14.14 0"></path><path d="M7.76 7.76a6 6 0 0 1 8.48 0"></path><circle cx="12" cy="12" r="2"></circle><path d="M12 14v8"></path></svg>
+        </div>
+        <span class="skill-capsule-name">LoRa / XBee</span>
+      </div>
+
+      <!-- EasyEDA / Schematics -->
+      <div class="skill-capsule">
+        <div class="skill-capsule-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <span class="skill-capsule-name">PCB & Circuit Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. EXPERIENCE SECTION ═══ -->
+  <section class="experience-section" id="experience">
+    <div class="section-wrapper">
+      <div class="section-header">
+        <h2 class="section-heading-lg">My <span>Experience</span></h2>
+        <p class="section-subtitle-text">A glimpse into my journey of turning knowledge into real-world projects and impactful solutions.</p>
+      </div>
+
+      <div class="experience-grid">
+        <div class="exp-card">
+          <span class="exp-badge">Frontend Engineering • 2025</span>
+          <h3 class="exp-title">Frontend Developer</h3>
+          <h4 class="exp-company">FlyRank AI</h4>
+          <p class="exp-desc">Developed responsive and interactive web interfaces; contributed to component implementation, state debugging, and performance optimization for client-facing features.</p>
+        </div>
+        <div class="exp-card">
+          <span class="exp-badge">Rocketry & Avionics</span>
+          <h3 class="exp-title">Avionics & Payload Engineer</h3>
+          <h4 class="exp-company">Vyomnauts Club — PSIT</h4>
+          <p class="exp-desc">Integrated multi-sensor avionics arrays and wireless telemetry systems; engineered flight-data acquisition, communication protocols (LoRa & XBee), onboard SD logging, and payload ground station testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6. PROJECTS SECTION ═══ -->
+  <section class="section-wrapper" id="projects">
+    <div class="section-header">
+      <h2 class="section-heading-lg">My <span>Projects</span></h2>
+      <p class="section-subtitle-text">Authentic engineering projects engineered with hardware, firmware, and telemetry software.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- 📸 PROJECT 1: Model Rocketry Avionics -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="/images/schematic.png" alt="Model Rocketry Avionics" loading="lazy" style="object-position: center 25%;" />
+          <span class="project-category-badge">IN-SPACE Rocketry</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Model Rocketry Avionics</h3>
+          <p class="project-desc">Designed an avionics architecture for a 1 kg CanSat payload targeting ~1000m deployment altitude. Integrated IMU (BNO085), barometric altimeter (BMP390), GNSS positioning, RTC, and INA226 power monitoring. Handled real-time telemetry over XBee/LoRa, onboard SD logging, and parachute ejection logic.</p>
+          <div class="project-tech-tags">
+            <span class="project-tech-tag">ESP32-S3</span>
+            <span class="project-tech-tag">Raspberry Pi</span>
+            <span class="project-tech-tag">BNO085</span>
+            <span class="project-tech-tag">BMP390</span>
+            <span class="project-tech-tag">LoRa</span>
+            <span class="project-tech-tag">XBee</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/aditya11-07" target="_blank" rel="noopener noreferrer" class="btn-card-primary">GitHub Repo ↗</a>
+            <a href="/images/schematic.png" data-schematic="/images/schematic.png" class="btn-card-secondary btn-view-schematic">View Schematic ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 📸 PROJECT 2: IN-SPACe Model Cansat -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="/images/CAN7USAT.png" alt="IN-SPACe Model Cansat" loading="lazy" style="object-position: center center;" />
+          <span class="project-category-badge">Payload & Hardware</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">IN-SPACe Model Cansat</h3>
+          <p class="project-desc">Model Cansat project; payload & hardware development.</p>
+          <div class="project-tech-tags">
+            <span class="project-tech-tag">ESP32-S3</span>
+            <span class="project-tech-tag">BNO085</span>
+            <span class="project-tech-tag">BMP390</span>
+            <span class="project-tech-tag">LoRa</span>
+            <span class="project-tech-tag">XBee</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/aditya11-07" target="_blank" rel="noopener noreferrer" class="btn-card-primary">GitHub Repo ↗</a>
+            <a href="/images/CAN7USAT.png" data-schematic="/images/CAN7USAT.png" class="btn-card-secondary btn-view-schematic">View Schematic ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 📸 PROJECT 3: Smart Hovercraft for Flood Rescue -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="/images/Hovercraft.jpeg" alt="Smart Hovercraft for Flood Rescue" loading="lazy" style="object-position: center center;" />
+          <span class="project-category-badge">Robotics & IoT</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Smart Hovercraft for Flood Rescue</h3>
+          <p class="project-desc">Developed an ESP32-based remotely controlled hovercraft prototype designed for flood-rescue applications in shallow water and debris, motivated and mentored by Faiz Bhaiya. Powered by high-RPM BLDC thrust lift motors and electronic speed controllers (ESC). Directional thrust and throttle are wirelessly maneuvered via a self-made smartphone game controller interface with real-time response and emergency fail-safe protocol.</p>
+          <div class="project-tech-tags">
+            <span class="project-tech-tag">ESP32</span>
+            <span class="project-tech-tag">Phone Game Controller</span>
+            <span class="project-tech-tag">BLDC Motors</span>
+            <span class="project-tech-tag">ESC</span>
+            <span class="project-tech-tag">Servo Steering</span>
+            <span class="project-tech-tag">Embedded C++</span>
+          </div>
+          <div class="project-actions">
+            <a href="https://github.com/aditya11-07" target="_blank" rel="noopener noreferrer" class="btn-card-primary">GitHub Repo ↗</a>
+            <a href="/images/Hovercraft.jpeg" data-schematic="/images/Hovercraft.jpeg" class="btn-card-secondary btn-view-schematic">View Schematic ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. ACHIEVEMENTS SECTION ═══ -->
+  <section class="achievements-section" id="achievements">
+    <div class="section-wrapper">
+      <div class="section-header">
+        <h2 class="section-heading-lg">My <span>Achievements</span></h2>
+        <p class="section-subtitle-text">Milestones that define my journey from national aerospace competitions to technical certifications.</p>
+      </div>
+
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <div>
+            <h3 class="achievement-title">IN-SPACe CANSAT India Student Competition</h3>
+            <p class="achievement-desc">National student competition (2025–2026). Qualified PDR & CDR and designed the complete telemetry and avionics payload for model rocketry and CanSat payload.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <div>
+            <h3 class="achievement-title">TCS iON — AI for All Certification</h3>
+            <p class="achievement-desc">Certified in core concepts of artificial intelligence, machine learning pipelines, and societal applications of AI algorithms.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div>
+            <h3 class="achievement-title">Google Cloud / Simplilearn — Generative AI</h3>
+            <p class="achievement-desc">Completed foundational training in Large Language Models (LLMs), attention mechanisms, and generative AI system integrations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. CONTACT SECTION ═══ -->
+  <section class="section-wrapper" id="contact">
+    <div class="section-header" style="text-align: center;">
+      <h2 class="section-heading-lg">Let's <span>Connect</span></h2>
+      <p class="section-subtitle-text" style="margin: 0 auto;">Have an opportunity, project collaboration, or question? Feel free to reach out directly.</p>
+    </div>
+
+    <div class="contact-container">
+      <!-- Direct Contact Cards -->
+      <div class="contact-info-panel">
+        <!-- Email -->
+        <div class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email Directly</div>
+            <a href="mailto:adityavaibhavpandey@gmail.com" class="contact-value" style="display: block; text-decoration: none; color: inherit;">adityavaibhavpandey@gmail.com</a>
+            <div class="contact-copy-wrap">
+              <button type="button" class="btn-copy-email" id="btnCopyEmail">📋 Copy Email</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/aditya-pandey-9a1811330" target="_blank" rel="noopener noreferrer" class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">LinkedIn Profile</div>
+            <div class="contact-value">linkedin.com/in/aditya-pandey-9a1811330</div>
+          </div>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/aditya11-07" target="_blank" rel="noopener noreferrer" class="contact-info-card">
+          <div class="contact-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.235 1.84 1.235 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.305.76-1.605-2.665-.303-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.235-3.222-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 0 1 3.003-.403c1.02.005 2.047.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.874.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.609-2.804 5.624-5.476 5.921.43.372.814 1.103.814 2.222 0 1.606-.015 2.902-.015 3.293 0 .322.218.694.825.576C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">GitHub Profile</div>
+            <div class="contact-value">github.com/aditya11-07</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Message Form with Real Client Handling -->
+      <form class="contact-form" id="contactForm">
+        <div class="contact-status-banner" id="contactStatusBanner"></div>
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" class="form-input" placeholder="e.g. John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" class="form-input" placeholder="e.g. john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Topic / Subject</label>
+          <input type="text" id="subject" class="form-input" placeholder="e.g. Embedded Systems Role / Project Collaboration" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" rows="4" class="form-textarea" placeholder="Hi Aditya, I came across your rocketry avionics and software projects..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="btnSubmitContact" style="justify-content: center; width: 100%; border: none; cursor: pointer;">
+          Send Message
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 Aditya Pandey. Built with passion, hardware precision & clean software.</p>
+    </div>
+  </footer>
+
+  <!-- ═══ RESUME / CV MODAL ═══ -->
+  <div class="portfolio-modal-overlay" id="resumeModalOverlay">
+    <div class="portfolio-modal-window" role="dialog" aria-modal="true">
+      <div class="portfolio-modal-header">
+        <h3 class="portfolio-modal-title">Aditya Pandey — Engineering CV</h3>
+        <button type="button" class="portfolio-modal-close" id="resumeModalClose">&times;</button>
+      </div>
+      <div class="portfolio-modal-body">
+        <div class="resume-section-title">Academic Background</div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span>B.Tech in Computer Science & Engineering</span>
+            <span>2025 – 2029</span>
+          </div>
+          <div class="resume-item-sub">Pranveer Singh Institute of Technology (PSIT), Kanpur</div>
+          <div class="resume-item-body">Focus: Data Structures & Algorithms, Computer Architecture, Embedded Systems, Microcontroller Firmware, and Physical Computing.</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span>School Captain & Higher Secondary Education</span>
+            <span>Completed 2024</span>
+          </div>
+          <div class="resume-item-sub">PM Shri Kendriya Vidyalaya Amhat, Sultanpur</div>
+          <div class="resume-item-body">Served as School Captain. Cultivated foundational leadership qualities, student delegation, team management, discipline, and personal responsibility.</div>
+        </div>
+
+        <div class="resume-section-title">Key Engineering Experience</div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span>Avionics Engineer</span>
+            <span>2025 – Present</span>
+          </div>
+          <div class="resume-item-sub">PSIT Vyomnauts Club — PSIT Kanpur</div>
+          <div class="resume-item-body">Engineered multi-sensor flight payloads, low-level firmware on ESP32/ESP32-S3/ESP32-C3 & Arduino, sensor fusion (BMP, BNO, RTC, GPS), BLDC thrust & ESC controls, and wireless RF links.</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span>Frontend Developer</span>
+            <span>2025</span>
+          </div>
+          <div class="resume-item-sub">FlyRank AI</div>
+          <div class="resume-item-body">Built high-performance responsive web interfaces, telemetry dashboards, state optimizations, and REST API integrations.</div>
+        </div>
+
+        <div class="resume-section-title">Competitions & Milestones</div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span>IN-SPACe Rocketry Competition — Avionics Team Lead</span>
+            <span>2025 – Present</span>
+          </div>
+          <div class="resume-item-sub">IN-SPACe / ISRO & Department of Space, Govt of India</div>
+          <div class="resume-item-body">Qualified Preliminary Design Review (PDR) and Critical Design Review (CDR). Spearheading avionics architecture, payload recovery, and real-time telemetry.</div>
+        </div>
+
+        <div class="resume-section-title">Core Technical Skills</div>
+        <div class="resume-item-body" style="line-height: 1.8;">
+          <strong>Microcontrollers & MCUs:</strong> ESP32, ESP32-S3, ESP32-C3, Arduino Nano, Arduino Uno, Raspberry Pi<br />
+          <strong>Sensors & Aerospace Hardware:</strong> BMP Barometric Altimeter, BNO 9-DOF IMU, RTC, GPS GNSS, BLDC Motors, ESC, LoRa, XBee<br />
+          <strong>Languages & Software:</strong> C, C++, Python, JavaScript (ES6+), React, Node.js, Docker, Linux, Git, EasyEDA / KiCad
+        </div>
+      </div>
+      <div class="portfolio-modal-footer">
+        <a href="mailto:adityavaibhavpandey@gmail.com?subject=Job%20Opportunity%20/%20Full%20Resume%20Request%20for%20Aditya%20Pandey" class="btn-primary" style="font-size: 0.9rem; padding: 10px 20px;">
+          Request Full PDF Resume ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCHEMATIC LIGHTBOX MODAL ═══ -->
+  <div class="portfolio-modal-overlay" id="schematicModalOverlay">
+    <div class="portfolio-modal-window" style="max-width: 900px;" role="dialog" aria-modal="true">
+      <div class="portfolio-modal-header">
+        <h3 class="portfolio-modal-title">CAN-7USAT Avionics Schematic & PCB Circuit</h3>
+        <button type="button" class="portfolio-modal-close" id="schematicModalClose">&times;</button>
+      </div>
+      <div class="portfolio-modal-body" style="text-align: center; background: #0B1021; padding: 16px;">
+        <img src="/images/schematic.png" alt="CAN-7USAT Circuit Schematic" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" />
+      </div>
+      <div class="portfolio-modal-footer">
+        <a href="/images/schematic.png" target="_blank" download="CAN-7USAT_Schematic.png" class="btn-primary" style="font-size: 0.9rem; padding: 10px 20px;">
+          Download Full Schematic ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
