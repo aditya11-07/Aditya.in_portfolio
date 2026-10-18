@@ -171,7 +171,7 @@ export const portfolioData = {
       id: "in-space-rocketry",
       title: "Model Rocketry Avionics",
       categoryBadge: "IN-SPACE Rocketry",
-      image: "/images/schematic.png",
+      image: "/images/PCB.jpeg",
       imagePosition: "center 25%",
       description: "Designed and developed the rocket avionics system for TRISHUL II under the IN-SPACe Model Rocketry India Student Competition 2026. Integrated ESP32-S3, BMP390 barometric altimeter, BNO085 IMU, GNSS modules, and power monitoring for real-time flight data acquisition. Implemented LoRa/XBee telemetry, onboard SD card data logging, apogee detection, and automated payload separation logic to support flight monitoring and mission operations.",
       tags: ["ESP32-S3", "Raspberry Pi", "BNO085", "BMP390", "LoRa", "XBee"],
