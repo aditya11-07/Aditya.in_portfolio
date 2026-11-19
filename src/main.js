@@ -234,9 +234,11 @@ function renderProjects(projectsList, isLiveUpdate = false) {
       </a>
     ` : '';
 
+    const isCircuit = proj.id === 'water-level-indicator';
+
     const secondaryBtn = proj.schematicUrl ? `
       <a href="${proj.schematicUrl}" data-schematic="${proj.schematicUrl}" class="btn-card-secondary btn-view-schematic">
-        View Schematic ↗
+        ${isCircuit ? 'View Circuit ↗' : 'View Schematic ↗'}
       </a>
     ` : proj.liveUrl ? `
       <a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-card-secondary">
@@ -248,8 +250,8 @@ function renderProjects(projectsList, isLiveUpdate = false) {
       <div class="pcard">
         <div class="corner tl"></div>
         <div class="corner br"></div>
-        <div class="pcard-media">
-          <img src="${proj.image}" alt="${proj.title}" loading="lazy" style="object-position: ${proj.imagePosition || 'center center'};" />
+        <div class="pcard-media" style="${isCircuit ? 'background: #ffffff;' : ''}">
+          <img src="${proj.image}" alt="${proj.title}" loading="lazy" style="object-position: ${proj.imagePosition || 'center center'}; ${isCircuit ? 'object-fit: contain; padding: 6px;' : ''}" />
           ${proj.categoryBadge ? `<span class="pcard-kind">${proj.categoryBadge}</span>` : ''}
         </div>
         <div class="pcard-body">

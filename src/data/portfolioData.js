@@ -59,6 +59,7 @@ export const portfolioData = {
   availablePhotos: [
     { label: "TRISHUL II Rocket Launch Pad (Aditya)", path: "/images/aditya_trishul_rocket.jpg" },
     { label: "Rocket Launch (Aditya)", path: "/images/aditya_rocket.png" },
+    { label: "Water Level Indicator Circuit", path: "/images/water_level_indicator.webp" },
     { label: "Aditya Profile", path: "/images/Aditya_Profile.png" },
     { label: "CanSat 7U Payload", path: "/images/CAN7USAT.png" },
     { label: "Smart Hovercraft", path: "/images/Hovercraft.jpeg" },
@@ -221,12 +222,12 @@ export const portfolioData = {
       id: "water-level-indicator",
       title: "Precision Water Level Indicator & IoT Monitor",
       categoryBadge: "IoT & Microcontroller Interfacing",
-      image: "/images/PCB.jpeg",
+      image: "/images/water_level_indicator.webp",
       imagePosition: "center center",
       description: "Built a water-level monitoring system with multi-stage sensing, real-time status indicators, and microcontroller interfacing. Practiced input/output handling, sensor calibration, noise filtering, and fault-tolerant embedded-system troubleshooting.",
       tags: ["Microcontrollers", "Sensors", "Embedded C", "Hardware Debugging", "Power Monitoring"],
       githubUrl: "https://github.com/aditya11-07",
-      schematicUrl: "/images/PCB.jpeg"
+      schematicUrl: "/images/water_level_indicator.webp"
     }
   ],
 
