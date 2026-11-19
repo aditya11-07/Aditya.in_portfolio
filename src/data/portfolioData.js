@@ -3,21 +3,11 @@
  * ADITYA PANDEY PORTFOLIO - CONTENT & PHOTO CONFIGURATION
  * ==============================================================================
  * 
- * ONLY YOU (ADITYA) CAN EDIT THIS FILE:
- * ------------------------------------------------------------------------------
- * 1. HOW TO CHANGE ANY PHOTO (TWO SIMPLE WAYS):
- *    WAY A: Edit directly in `index.html`!
- *           - Open `index.html`, find the photo tag (marked with 📸 comments),
- *             and change the `src="..."` to your photo path.
- *           - Changes in `index.html` are 100% direct and will never be overwritten!
- * 
- *    WAY B: Put your photo file in `public/images/` or `images/`!
- *           - Any image placed in `public/images/` or `images/` can be used as `/images/your_photo.jpg`.
- *           - Update the paths in `personal` below or in `index.html`.
- * 
- * 2. HOW TO CHANGE CONTENT & TEXT:
- *    - Edit either in `index.html` or in `portfolioData.js`.
- *    - Save the file and your portfolio updates instantly!
+ * Verified against:
+ * - Aditya_Pandey_CV.pdf
+ * - Aditya_Pandey_Techkriti_Resume.pdf
+ * - IN-SPACe / ISRO National Finale (Team Leader & Finalist)
+ * - LinkedIn: in/aditya-pandey-9a1811330
  * ==============================================================================
  */
 
@@ -25,189 +15,232 @@ export const portfolioData = {
   // ── 1. PERSONAL INFORMATION & PROFILE PHOTOS ──
   personal: {
     name: "Aditya Pandey",
-    roleTitle: "Computer Science Engineer | Embedded Systems & Full Stack",
-    heroHeading: "Engineering Reliable <span class=\"accent\">Embedded & Web Systems</span>",
-    heroSubheading: "Hi, I'm **Aditya Pandey**. Computer Science & Engineering student at PSIT Kanpur. Bridging hardware and software through rocketry avionics, real-time telemetry, and high-performance applications.",
-    statusBadge: "Open for Embedded Systems & Software Roles",
+    roleTitle: "Computer Science Engineer | Full-Stack Software, Real-Time Systems & Rocketry Avionics",
+    heroHeading: "Engineering Scalable <span class=\"accent\">Software & High-Reliability Systems</span>",
+    heroSubheading: "Undergraduate Computer Science & Engineering student at **PSIT Kanpur** and **Team Leader & National Finalist in the IN-SPACe Model Rocketry & CAN-7USAT India Student Competition 2026** (PDR & CDR Qualified). Specializing in full-stack software development, systems architecture, real-time RF telemetry (LoRa / XBee), and rocketry avionics.",
+    statusBadge: "Team Leader · IN-SPACe Model Rocketry National Finalist",
 
-    // Profile Photos (change these to any image in /images/ or any image URL)
-    heroPhoto: "/images/aditya_rocket.png",
-    aboutPhoto: "/images/aditya_rocket.png",
-    navAvatar: "/images/aditya_rocket.png",
+    // Profile Photos
+    heroPhoto: "/images/aditya_trishul_rocket.jpg",
+    aboutPhoto: "/images/Aditya_Profile.png",
+    navAvatar: "/images/Aditya_Profile.png",
 
     aboutTitle: "Hello, I'm <span>Aditya Pandey</span>",
 
     bioParagraphs: [
-      "I am a Computer Science & Engineering student at **Pranveer Singh Institute of Technology (PSIT), Kanpur**. I have a deep passion for embedded systems, rocketry avionics, IoT telemetry, and modern software engineering.",
-      "My work ranges from designing microelectronics and multi-sensor avionics payloads for **CanSat / IN-SPACe** rocketry competitions, to building real-time ground control stations and reactive web interfaces at **FlyRank AI**.",
-      "I thrive at the intersection of low-level microcontroller protocols (UART, I²C, SPI, LoRa) and high-level software architectures, writing clean code and building resilient physical systems."
+      "I am a Computer Science & Engineering undergraduate at **Pranveer Singh Institute of Technology (PSIT), Kanpur** (Class of 2025–2029) with a strong secondary education foundation from **PM Shri Kendriya Vidyalaya Amhat, Sultanpur** (School Captain, Class X: 90.8%, Class XII: 82%).",
+      "I served as the **Team Leader & Lead Avionics Engineer** for the **IN-SPACe Model Rocketry & CAN-7USAT India Student Competition 2026** (organized by IN-SPACe, Department of Space, Govt. of India in association with ISRO). Heading our student engineering team from PSIT Vyomnauts Club, I led our technical design and defense through both the rigorous **Preliminary Design Review (PDR)** and **Critical Design Review (CDR)** evaluated by senior ISRO and IN-SPACe scientists, earning our place as **National Finalists** among 115 registered teams nationwide for launch at the Narayani Model Rocketry Launch Pad, Kushinagar.",
+      "My engineering work places core focus on **software engineering and systems architecture**: developing full-stack web applications with React, Node.js, and Python, engineering Dockerized ground control stations, and writing high-reliability low-level firmware in C/C++. Alongside my leadership in rocketry avionics, I work as a **Frontend Developer at FlyRank AI**, engineering responsive web applications, interactive state architectures, and telemetry monitoring dashboards."
     ],
+
+    education: {
+      college: "Pranveer Singh Institute of Technology (PSIT), Kanpur",
+      degree: "B.Tech in Computer Science & Engineering",
+      years: "2025 – 2029 (Present)",
+      school: "PM Shri Kendriya Vidyalaya Amhat, Sultanpur",
+      schoolHonor: "School Captain (Completed 2024)",
+      class12: "82%",
+      class10: "90.8%"
+    },
 
     socials: {
       linkedin: "https://linkedin.com/in/aditya-pandey-9a1811330",
       github: "https://github.com/aditya11-07",
-      email: "adityavaibhavpandey@gmail.com"
+      email: "adityavaibhavpandey@gmail.com",
+      collegeEmail: "2k25cse2513677@gmail.com",
+      phone: "+91 9555075608",
+      location: "Kanpur, Uttar Pradesh, India",
+      cvPdf: "/Aditya_Pandey_CV.pdf",
+      resumePdf: "/Aditya_Pandey_Resume.pdf"
     }
   },
 
-  // ── 2. PRESET GALLERY PHOTOS (Quickly pickable in the in-browser customizer) ──
+  // ── 2. PRESET GALLERY PHOTOS ──
   availablePhotos: [
+    { label: "TRISHUL II Rocket Launch Pad (Aditya)", path: "/images/aditya_trishul_rocket.jpg" },
     { label: "Rocket Launch (Aditya)", path: "/images/aditya_rocket.png" },
-    { label: "Portrait 1", path: "/images/aditya_portrait1.jpg" },
-    { label: "Portrait 2", path: "/images/aditya_portrait2.jpg" },
-    { label: "Aditya Profile", path: "/images/aditya.jpg" },
-    { label: "HDR Studio", path: "/images/aditya_hdr.jpg" },
-    { label: "CanSat Hardware", path: "/images/cansat_hardware.jpg" },
-    { label: "CanSat Avionics", path: "/images/cansat_avionics.jpg" },
-    { label: "Ground Station Telemetry", path: "/images/ground_station.jpg" },
-    { label: "Schematic PCB Diagram", path: "/images/schematic.png" }
+    { label: "Aditya Profile", path: "/images/Aditya_Profile.png" },
+    { label: "CanSat 7U Payload", path: "/images/CAN7USAT.png" },
+    { label: "Smart Hovercraft", path: "/images/Hovercraft.jpeg" },
+    { label: "Avionics PCB & Circuit", path: "/images/PCB.jpeg" },
+    { label: "Rocketry Launch Pad", path: "/images/rocketry.jpeg" },
+    { label: "CAN-7USAT Schematic", path: "/images/schematic.png" }
   ],
 
   // ── 3. MARQUEE BANNER TEXTS ──
   marquee: {
-    topMuted: "CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT · CREATE · SHIP · REPEAT",
-    bottomBold: "BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS · BUILD SYSTEMS NOT CHAOS"
+    topMuted: "TEAM LEADER · IN-SPACE NATIONAL FINALIST · PDR & CDR QUALIFIED · CAN-7USAT 7U PAYLOAD · FULL-STACK SOFTWARE & AVIONICS",
+    bottomBold: "BUILD SYSTEMS NOT CHAOS · FULL-STACK SOFTWARE · ~1000M ROCKETRY · FLYRANK AI · PSIT VYOMNAUTS"
   },
 
   // ── 4. CHRONOLOGICAL TIMELINE / JOURNEY MILESTONES ──
-  // Categories: 'all' | 'rocketry' | 'software' | 'education'
   timeline: [
     {
-      id: "timeline-phase-04-inspace",
-      year: "2025 – Present",
-      phase: "Phase 04 // IN-SPACe Rocketry",
-      title: "IN-SPACe Rocketry Competition — Team Lead",
-      organization: "IN-SPACe / ISRO & Department of Space, Government of India",
-      badge: "PDR & CDR Qualified",
+      id: "timeline-phase-05-inspace",
+      year: "2025 – 2026",
+      phase: "Phase 04 // National Finale & Vyomnauts",
+      title: "Team Leader & Lead Avionics Engineer — IN-SPACe Rocketry (Vyomnauts Club)",
+      organization: "IN-SPACe / ISRO & PSIT Vyomnauts Club",
+      badge: "National Finalist",
       category: "rocketry",
-      description: "Serving as Team Lead for the rocketry avionics team in the IN-SPACe student rocketry competition. Successfully qualified both Preliminary Design Review (PDR) and Critical Design Review (CDR). Spearheading multi-sensor telemetry acquisition, wireless communication links, power distribution, and flight recovery payload architecture.",
-      tags: ["IN-SPACe", "ISRO", "PDR Qualified", "CDR Qualified", "Team Lead", "CanSat Avionics", "Telemetry"],
+      description: "Serving as Team Leader & Lead Avionics Engineer for PSIT Vyomnauts Club, directing our rocketry team to National Finalist status among 115 registered teams nationwide in the prestigious IN-SPACe Model Rocketry & CAN-7USAT Student Competition 2026. Successfully led our technical proposals and defended both the Preliminary Design Review (PDR) and Critical Design Review (CDR) evaluated by senior ISRO, DRDO, and IN-SPACe scientists. Directed the 1 kg CAN-7USAT avionics payload, 1000m deployment systems, multi-sensor integration (ESP32-S3, BNO085 IMU, BMP390, GNSS), and real-time telemetry architecture (LoRa 433MHz & XBee) for launch at Narayani Model Rocketry Launch Pad, Kushinagar, UP.",
+      tags: ["Team Leader", "IN-SPACe Finalist", "ISRO", "PDR & CDR Qualified", "ESP32-S3", "CAN-7USAT", "LoRa & XBee", "Vyomnauts Club"],
       icon: "award"
     },
     {
-      id: "timeline-phase-03-vyomnauts",
-      year: "2025 – Present",
-      phase: "Phase 03 // PSIT Vyomnauts",
-      title: "Avionics Engineer — PSIT Vyomnauts",
-      organization: "PSIT Vyomnauts Club — PSIT Kanpur",
-      badge: "Avionics & Systems",
-      category: "rocketry",
-      description: "Joined PSIT Vyomnauts as an Avionics Engineer (2025–Present). Hands-on development and firmware engineering across microcontrollers (ESP32, ESP32-S3, ESP32-C3, Arduino Nano, Arduino Uno) and aerospace sensor arrays (BMP barometric altimeters, BNO 9-DOF IMUs, RTC, GPS GNSS, BLDC motors, and electronic speed controllers / ESC).",
-      tags: ["ESP32", "ESP32-S3", "ESP32-C3", "Arduino Nano / Uno", "BMP Altimeter", "BNO IMU", "RTC", "GPS", "BLDC & ESC"],
-      icon: "cpu"
+      id: "timeline-phase-03-flyrank",
+      year: "2025",
+      phase: "Phase 03 // FlyRank AI",
+      title: "Frontend Developer — FlyRank AI",
+      organization: "FlyRank AI",
+      badge: "Software Engineering",
+      category: "software",
+      description: "Engineered responsive and interactive web applications; implemented reusable modular components, state management workflows, REST API integrations, and UI rendering performance optimization for client-facing software products.",
+      tags: ["React", "JavaScript (ES6+)", "REST APIs", "State Management", "Frontend Architecture", "UI Optimization"],
+      icon: "code"
     },
     {
       id: "timeline-phase-02-hovercraft",
       year: "2025",
-      phase: "Phase 02 // Mini Project",
-      title: "Smart Hovercraft Prototype",
-      organization: "Guided Hardware Project (Motivated by Faiz Bhaiya)",
-      badge: "Custom Phone Controller",
+      phase: "Phase 02 // Robotics Prototype",
+      title: "Smart Hovercraft for Flood Rescue Prototype",
+      organization: "Guided Hardware Project (Motivated & Mentored by Faiz Bhaiya)",
+      badge: "Amphibious Robotics",
       category: "software",
-      description: "Built a functional remotely controlled hovercraft prototype, motivated and mentored by Faiz Bhaiya. Powered by high-RPM BLDC thrust lift motors and electronic speed controllers (ESC), wirelessly steered and maneuvered using a self-made smartphone game controller interface with servo-vectored rudders and emergency fail-safes.",
-      tags: ["Hovercraft", "Phone Game Controller", "BLDC Motors", "ESC", "Servo Steering", "Faiz Bhaiya Mentorship"],
+      description: "Engineered an ESP32-powered remotely controlled amphibious hovercraft designed for flood-rescue operations in shallow waters and debris. Powered by dual high-RPM BLDC thrust and lift motors with electronic speed controllers (ESCs), vectored servo rudders, smartphone game controller interface, and emergency fail-safe stop logic.",
+      tags: ["Hovercraft", "ESP32", "BLDC Motors", "ESC", "Servo Steering", "Bluetooth", "Faiz Bhaiya Mentorship"],
       icon: "rocket"
     },
     {
       id: "timeline-phase-01-college",
       year: "2025 – 2029",
-      phase: "Phase 01 // College Life",
+      phase: "Phase 01 // Undergraduate",
       title: "B.Tech in Computer Science & Engineering",
       organization: "Pranveer Singh Institute of Technology (PSIT), Kanpur",
-      badge: "Undergraduate Degree",
+      badge: "Computer Science",
       category: "education",
-      description: "Pursuing engineering at Pranveer Singh Institute of Technology (PSIT), Kanpur (2025–2029). Building a solid academic foundation in computer science, data structures, algorithms, computer architecture, and embedded systems, bridging pure software with physical hardware.",
-      tags: ["PSIT Kanpur", "Computer Science", "Engineering", "Algorithms", "C / C++", "Microcontrollers"],
+      description: "Pursuing Bachelor of Technology in Computer Science & Engineering (2025–2029). Focused coursework and practical lab work in Data Structures & Algorithms, Systems Architecture, Object-Oriented Programming, Operating Systems, and Embedded Systems.",
+      tags: ["PSIT Kanpur", "Computer Science", "Data Structures", "Algorithms", "C / C++", "Full-Stack Dev"],
       icon: "graduation"
     },
     {
       id: "timeline-phase-00-academic",
       year: "Completed 2024",
-      phase: "Phase 00 // Academic",
-      title: "School Captain & Higher Secondary Education",
+      phase: "Phase 00 // Academic & Leadership",
+      title: "School Captain & Higher Secondary (Class XII: 82% | Class X: 90.8%)",
       organization: "PM Shri Kendriya Vidyalaya Amhat, Sultanpur",
-      badge: "School Captain",
+      badge: "School Captain & Honors",
       category: "education",
-      description: "Completed academic schooling in 2024 from PM Shri Kendriya Vidyalaya Amhat, Sultanpur. Proudly served as the School Captain, developing strong leadership qualities, team management, discipline, and responsibility that continue to guide my technical and collaborative engineering pursuits.",
-      tags: ["School Captain", "Leadership & Responsibility", "Kendriya Vidyalaya Amhat", "Sultanpur", "Academic Foundation"],
+      description: "Graduated with 82% in Class XII and 90.8% in Class X from PM Shri Kendriya Vidyalaya Amhat, Sultanpur. Served with distinction as School Captain, developing foundational leadership, team management, discipline, and public communication skills.",
+      tags: ["School Captain", "Class XII 82%", "Class X 90.8%", "Kendriya Vidyalaya Amhat", "Leadership"],
       icon: "award"
     }
   ],
 
-  // ── 5. TECHNICAL SKILLS ──
+  // ── 5. TECHNICAL SKILLS (SOFTWARE-FOCUSED) ──
   skills: [
-    { name: "C / C++", category: "embedded", icon: "cpp" },
+    { name: "React & JS", category: "software", icon: "react" },
     { name: "Python", category: "software", icon: "python" },
-    { name: "ESP32 / MCU", category: "embedded", icon: "esp32" },
-    { name: "Arduino & RPi", category: "embedded", icon: "arduino" },
-    { name: "React", category: "software", icon: "react" },
-    { name: "Node & JS", category: "software", icon: "node" },
-    { name: "Docker", category: "devops", icon: "docker" },
-    { name: "LoRa / XBee", category: "embedded", icon: "lora" },
-    { name: "PCB & Circuit Design", category: "hardware", icon: "pcb" },
-    { name: "Git & Linux", category: "devops", icon: "git" }
+    { name: "Node.js & Express", category: "software", icon: "node" },
+    { name: "Data Structures & C++", category: "software", icon: "cpp" },
+    { name: "Docker & DevOps", category: "devops", icon: "docker" },
+    { name: "Git & Linux", category: "devops", icon: "git" },
+    { name: "REST APIs & WebSockets", category: "software", icon: "code" },
+    { name: "Embedded C / C++", category: "embedded", icon: "cpp" },
+    { name: "ESP32 & S3 Firmware", category: "embedded", icon: "esp32" },
+    { name: "LoRa & Telemetry Streams", category: "embedded", icon: "lora" },
+    { name: "Aerospace Sensor Fusion", category: "hardware", icon: "sensor" },
+    { name: "PCB Design & EasyEDA", category: "hardware", icon: "pcb" }
   ],
 
   // ── 6. EXPERIENCE CARDS ──
   experience: [
     {
-      badge: "Frontend Engineering • 2025",
+      badge: "Team Leader • Rocketry & Avionics • 2025 – Present",
+      role: "Team Leader & Lead Avionics Engineer",
+      company: "Vyomnauts Club — PSIT Kanpur",
+      year: "2025 – Present",
+      description: "Led the student aerospace rocketry team for national competitions. Supervised and engineered multi-sensor avionics arrays and wireless telemetry systems for TRISHUL II and CAN-7USAT missions. Directed flight-data acquisition, communication protocols (LoRa 433MHz & XBee RF), onboard SD logging, and ground station payload validation, leading the team through PDR and CDR qualification in the national IN-SPACe competition."
+    },
+    {
+      badge: "Software Engineering • 2025",
       role: "Frontend Developer",
       company: "FlyRank AI",
       year: "2025",
-      description: "Developed responsive and interactive web interfaces; contributed to component implementation, state debugging, and performance optimization for client-facing features."
-    },
-    {
-      badge: "Rocketry & Avionics",
-      role: "Avionics & Payload Engineer",
-      company: "Vyoumnauts Club — PSIT",
-      description: "Integrated multi-sensor avionics arrays and wireless telemetry systems; engineered flight-data acquisition, communication protocols (LoRa & XBee), onboard SD logging, and payload ground station testing."
+      description: "Developed responsive and interactive web interfaces; contributed to component implementation, state debugging, and performance optimization for client-facing software applications. Bridged web software design with real-time data flow architectures."
     }
   ],
 
   // ── 7. SIGNATURE PROJECTS ──
   projects: [
     {
-      id: "in-space-rocketry",
-      title: "Model Rocketry Avionics",
-      categoryBadge: "IN-SPACE Rocketry",
+      id: "CAN-7USAT-avionics",
+      title: "CAN-7USAT & Rocketry Avionics System",
+      categoryBadge: "IN-SPACe Team Leader · National Finalist",
       image: "/images/PCB.jpeg",
       imagePosition: "center 25%",
-      description: "Designed and developed the rocket avionics system for TRISHUL II under the IN-SPACe Model Rocketry India Student Competition 2026. Integrated ESP32-S3, BMP390 barometric altimeter, BNO085 IMU, GNSS modules, and power monitoring for real-time flight data acquisition. Implemented LoRa/XBee telemetry, onboard SD card data logging, apogee detection, and automated payload separation logic to support flight monitoring and mission operations.",
-      tags: ["ESP32-S3", "Raspberry Pi", "BNO085", "BMP390", "LoRa", "XBee"],
+      description: "Led as Team Leader and Chief Avionics Engineer in designing and engineering the complete flight avionics architecture for the TRISHUL II model rocket and 1 kg CAN-7USAT payload targeting ~1000m altitude in the IN-SPACe Model Rocketry India Student Competition 2026. Successfully guided our team to qualify both PDR (Preliminary Design Review) and CDR (Critical Design Review) evaluated by senior ISRO & IN-SPACe directors. Integrated ESP32-S3, BNO085 9-DOF IMU, BMP390 precision barometer, GNSS, and INA226 power monitoring for real-time telemetry, apogee detection, payload deployment logic, and SD-card flight data logging.",
+      tags: ["Team Leader", "ESP32-S3", "Raspberry Pi", "BNO085", "BMP390", "GNSS", "LoRa", "XBee", "INA226"],
       githubUrl: "https://github.com/aditya11-07",
       schematicUrl: "/images/schematic.png"
     },
     {
-      id: "CAN-7USAT",
-      title: "IN-SPACe Model Cansat",
-      categoryBadge: "Payload & Hardware",
+      id: "ground-control-station",
+      title: "Ground Control Station (GCS) — Rocket Telemetry",
+      categoryBadge: "Ground Station & Full-Stack Telemetry",
+      image: "/images/schematic.png",
+      imagePosition: "center center",
+      description: "Developed a web-based ground station for receiving, decoding, and visualizing rocket and CanSat telemetry in real time. Implemented telemetry logging, real-time trajectory graphs, and embedded-to-web data flow over serial/RF links. Packaged with a Docker-based deployment architecture with SQLite telemetry persistence.",
+      tags: ["Python", "JavaScript", "HTML / CSS", "Docker", "SQLite", "LoRa / XBee", "Telemetry Streams"],
+      githubUrl: "https://github.com/aditya11-07",
+      schematicUrl: "/images/schematic.png"
+    },
+    {
+      id: "CAN-7USAT-payload",
+      title: "IN-SPACe CAN-7USAT (7U Satellite Payload)",
+      categoryBadge: "7U CanSat · Team Leader Finalist",
       image: "/images/CAN7USAT.png",
       imagePosition: "center center",
-      description: "Designed and developed the CanSat payload system for the TRISHUL II rocket, focusing on sensor integration, onboard data acquisition, and mission monitoring. Integrated environmental sensors, GNSS positioning, and an embedded computing system with camera-based imaging and SD card data logging. Contributed to payload power management, real-time telemetry, and reliable operation under launch vibration and shock conditions.",
-      tags: ["ESP32-S3", "BNO085", "BMP390", "LoRa", "XBee"],
+      description: "Led development of the CanSat payload system (7U format, <1 kg) meeting IN-SPACe mission specifications. Features autonomous sensor subsystems, descent control recovery system opening at 600m altitude, vibration and shock resilience, GNSS tracking, and live telemetry broadcast to ground station.",
+      tags: ["Team Leader", "ESP32-S3", "BNO085", "BMP390", "GNSS", "LoRa", "XBee", "CanSat 7U"],
       githubUrl: "https://github.com/aditya11-07",
-
+      schematicUrl: "/images/CAN7USAT.png"
     },
     {
       id: "smart-hovercraft",
       title: "Smart Hovercraft for Flood Rescue",
-      categoryBadge: "Robotics & IoT",
+      categoryBadge: "Robotics & Embedded Hardware",
       image: "/images/Hovercraft.jpeg",
       imagePosition: "center center",
-      description: "Developed an ESP32-based remotely controlled hovercraft prototype designed for flood-rescue applications in shallow water and debris, motivated and mentored by Faiz Bhaiya. Powered by high-RPM BLDC thrust lift motors and electronic speed controllers (ESC). Directional thrust and throttle are wirelessly maneuvered via a self-made smartphone game controller interface with real-time response and emergency fail-safe protocol.",
-      tags: ["ESP32", "Phone Game Controller", "BLDC Motors", "ESC", "Servo Steering", "Embedded C++"],
+      description: "Developed an ESP32-based remotely controlled amphibious hovercraft prototype designed for flood-rescue operations in shallow water and debris, motivated and mentored by Faiz Bhaiya. Powered by high-RPM BLDC thrust lift motors and electronic speed controllers (ESC). Directional thrust and throttle are wirelessly maneuvered via a smartphone game controller interface with real-time response and emergency fail-safe protocol.",
+      tags: ["ESP32", "Phone Game Controller", "BLDC Motors", "ESC", "Servo Steering", "Bluetooth"],
       githubUrl: "https://github.com/aditya11-07",
-
+      schematicUrl: "/images/Hovercraft.jpeg"
+    },
+    {
+      id: "water-level-indicator",
+      title: "Precision Water Level Indicator & IoT Monitor",
+      categoryBadge: "IoT & Microcontroller Interfacing",
+      image: "/images/PCB.jpeg",
+      imagePosition: "center center",
+      description: "Built a water-level monitoring system with multi-stage sensing, real-time status indicators, and microcontroller interfacing. Practiced input/output handling, sensor calibration, noise filtering, and fault-tolerant embedded-system troubleshooting.",
+      tags: ["Microcontrollers", "Sensors", "Embedded C", "Hardware Debugging", "Power Monitoring"],
+      githubUrl: "https://github.com/aditya11-07",
+      schematicUrl: "/images/PCB.jpeg"
     }
   ],
 
   // ── 8. HONORS & ACHIEVEMENTS ──
   achievements: [
     {
-      title: "IN-SPACe CANSAT India Student Competition",
-      description: "National student competition (2025–2026). Qualified and designed the complete telemetry and avionics payload for model rocketry and CanSat payload.",
+      title: "Team Leader — IN-SPACe Model Rocketry & CAN-7USAT National Finalist & PDR/CDR Qualified",
+      description: "Served as Team Leader, guiding our student team to the top finalist tier nationwide out of 115 registered teams in the national competition organized by IN-SPACe (Department of Space) & ISRO. Qualified both Preliminary Design Review (PDR) and Critical Design Review (CDR), earning clearance to launch at Narayani Model Rocketry Launch Pad, Kushinagar (Grand Finale: Oct 31 – Nov 3, 2026).",
       icon: "award"
+    },
+    {
+      title: "School Captain & Academic Excellence — PM Shri KV Amhat",
+      description: "Served as School Captain at PM Shri Kendriya Vidyalaya Amhat, Sultanpur (Completed 2024). Graduated with 90.8% in Class X and 82% in Class XII, demonstrating proven leadership, discipline, and organizational excellence.",
+      icon: "graduation"
     },
     {
       title: "TCS iON — AI for All Certification",
@@ -215,8 +248,8 @@ export const portfolioData = {
       icon: "certificate"
     },
     {
-      title: "Google Cloud / Simplilearn — Generative AI",
-      description: "Completed foundational training in Large Language Models (LLMs), attention mechanisms, and generative AI system integrations.",
+      title: "Google Cloud / Simplilearn — Generative AI Certification",
+      description: "Completed foundational training in Large Language Models (LLMs), deep learning transformer architectures, attention mechanisms, and generative AI integrations.",
       icon: "sparkles"
     }
   ],
@@ -224,9 +257,14 @@ export const portfolioData = {
   // ── 9. CONTACT INFORMATION ──
   contact: {
     email: "adityavaibhavpandey@gmail.com",
+    collegeEmail: "2k25cse2513677@gmail.com",
+    phone: "+91 9555075608",
     linkedin: "https://linkedin.com/in/aditya-pandey-9a1811330",
     linkedinDisplay: "linkedin.com/in/aditya-pandey-9a1811330",
     github: "https://github.com/aditya11-07",
-    githubDisplay: "github.com/aditya11-07"
+    githubDisplay: "github.com/aditya11-07",
+    location: "Kanpur, Uttar Pradesh, India",
+    cvPdf: "/Aditya_Pandey_CV.pdf",
+    resumePdf: "/Aditya_Pandey_Resume.pdf"
   }
 };

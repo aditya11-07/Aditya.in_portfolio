@@ -6,7 +6,7 @@
 
 import { portfolioData as defaultData } from '../data/portfolioData.js';
 
-const STORAGE_KEY = 'aditya_portfolio_custom_data_v9';
+const STORAGE_KEY = 'aditya_portfolio_custom_data_v11';
 
 /**
  * Retrieve active portfolio data (merging any localStorage overrides with default)
