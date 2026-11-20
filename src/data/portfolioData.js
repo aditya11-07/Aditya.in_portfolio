@@ -58,7 +58,16 @@ export const portfolioData = {
   // ── 2. PRESET GALLERY PHOTOS ──
   availablePhotos: [
     { label: "TRISHUL II Rocket Launch Pad (Aditya)", path: "/images/aditya_trishul_rocket.jpg" },
-    { label: "Rocket Launch (Aditya)", path: "/images/aditya_rocket.png" },
+    { label: "Public Address & Speech (Stage)", path: "/images/gallery/gallery-01.jpg" },
+    { label: "ISRO Space Day Quiz Certificate", path: "/images/gallery/gallery-02.jpg" },
+    { label: "Swachh Bharat Quiz Certificate", path: "/images/gallery/gallery-03.jpg" },
+    { label: "Pariksha Pe Charcha 2024 Certificate", path: "/images/gallery/gallery-04.jpg" },
+    { label: "Narcotics Control Bureau Certificate", path: "/images/gallery/gallery-05.jpg" },
+    { label: "Digital Marketing Workshop Certificate", path: "/images/gallery/gallery-06.jpg" },
+    { label: "IN-SPACe Grand Finale Stage Award", path: "/images/gallery/gallery-07.jpg" },
+    { label: "Aditya — PSIT Teamwork Uniform", path: "/images/gallery/gallery-08.jpg" },
+    { label: "Vyomnauts Team at TRISHUL II Launcher", path: "/images/gallery/gallery-09.jpg" },
+    { label: "Aditya with Sudarshan Trishul Rocket", path: "/images/gallery/gallery-10.jpg" },
     { label: "Water Level Indicator Circuit", path: "/images/water_level_indicator.webp" },
     { label: "Aditya Profile", path: "/images/Aditya_Profile.png" },
     { label: "CanSat 7U Payload", path: "/images/CAN7USAT.png" },

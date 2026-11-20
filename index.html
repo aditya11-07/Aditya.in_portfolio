@@ -71,6 +71,7 @@
       <!-- Desktop Nav -->
       <nav class="nav" id="nav" aria-label="Main Navigation">
         <a href="#about">About</a>
+        <a href="#flight-stream">Archives</a>
         <a href="#timeline">Timeline</a>
         <a href="#skills">Toolbox</a>
         <a href="#experience">Experience</a>
@@ -238,6 +239,44 @@
                 <span>+91 9555075608</span>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3D FLIGHT STREAM / VISUAL ARCHIVES ═══ -->
+    <section class="sec flight-stream-sec" id="flight-stream">
+      <div class="wrap">
+        <div class="sh">
+          <p class="sh-label mono"><span>02</span>Visual Archives</p>
+          <div class="sh-row">
+            <h2>3D Hyperspace Flight Stream</h2>
+            <div class="flight-stream-controls">
+              <button type="button" class="btn btn-sm btn-line" id="flightPauseBtn" aria-label="Pause or Resume Flight Stream">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                <span>Pause</span>
+              </button>
+            </div>
+          </div>
+          <p class="sh-text">Interactive 3D cosmic stream featuring 10 verified photographs &amp; certificates from national aerospace competitions, ISRO certifications, leadership addresses, and launch pad operations. Hover to inspect, click to expand.</p>
+        </div>
+
+        <div class="flight-stream-viewport" id="flightStreamContainer" aria-label="Interactive 3D photo flight stream">
+          <!-- Ambient 3D Starfield Canvas -->
+          <canvas class="flight-stars" id="flightStarsCanvas"></canvas>
+
+          <!-- Cosmic Horizon Glow Overlay -->
+          <div class="flight-stream-glow" aria-hidden="true"></div>
+
+          <!-- 3D Perspective Stage -->
+          <div class="flight-stage" id="flightStage">
+            <!-- 10 Flying 3D Cards rendered dynamically by flight-stream.js -->
+          </div>
+
+          <!-- Bottom HUD Guidance Strip -->
+          <div class="flight-stream-hud mono" aria-hidden="true">
+            <span>WARP SPEED // 3D STREAM ACTIVE</span>
+            <span>10 CERTIFIED ARCHIVES · HOVER TO INSPECT · CLICK TO EXPAND</span>
           </div>
         </div>
       </div>
