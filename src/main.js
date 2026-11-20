@@ -508,6 +508,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize Continuously Animated, Interactive 3D Floating Gallery
+  // Gallery Modal Close Listeners
+  const galleryModalOverlay = document.getElementById('galleryModalOverlay');
+  const galleryModalClose = document.getElementById('galleryModalClose');
+  if (galleryModalClose) {
+    galleryModalClose.addEventListener('click', () => {
+      if (galleryModalOverlay) galleryModalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+  if (galleryModalOverlay) {
+    galleryModalOverlay.addEventListener('click', (e) => {
+      if (e.target === galleryModalOverlay) {
+        galleryModalOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Initialize Dynamic Visual Showcase (Certificates & Photos)
   initFloatingGallery();
 });
