@@ -244,44 +244,47 @@
       </div>
     </section>
 
-    <!-- ═══ 02. IMAGE SHOWCASE / CERTIFIED ARCHIVES ═══ -->
-    <section class="sec showcase-sec" id="showcase">
-      <div class="wrap">
-        <div class="sh">
-          <p class="sh-label mono"><span>02</span>Visual Showcase</p>
-          <div class="sh-row">
-            <h2>Engineering Archives &amp; Milestones</h2>
-            <div class="showcase-counter mono" id="showcaseCounter">12 Items</div>
+    <!-- ═══ 02. 3D DEPTH-TUNNEL SHOWCASE ═══ -->
+    <section class="tunnel-section" id="showcase" aria-label="3D Depth-Tunnel Showcase">
+      <!-- Native Scroll Track: Drives 3D Z-axis camera and card progression smoothly via scroll -->
+      <div class="tunnel-track" id="tunnelTrack">
+        <!-- Sticky 100vh Viewport: Pinned while scrolling through the tunnel depth -->
+        <div class="tunnel-viewport" id="tunnelViewport">
+          <!-- Background Cosmic Void Starfield Canvas -->
+          <canvas class="tunnel-stars" id="tunnelStarsCanvas"></canvas>
+
+          <!-- Cosmic Horizon Radial Glow -->
+          <div class="tunnel-glow" aria-hidden="true"></div>
+
+          <!-- Section Head HUD Overlay (Top) -->
+          <header class="tunnel-hud wrap" aria-hidden="false">
+            <div class="tunnel-hud-badge mono">
+              <span class="hud-dot"></span>
+              <span>3D DEPTH TUNNEL // Z-AXIS PARALLAX</span>
+            </div>
+            <h2 class="tunnel-hud-title">Engineering Archives &amp; Milestones</h2>
+            <p class="tunnel-hud-sub">Scroll to navigate the 3D cosmic tunnel. Hover to inspect, click to expand full details.</p>
+          </header>
+
+          <!-- 3D Perspective Stage -->
+          <div class="tunnel-stage-wrap" id="tunnelStageWrap">
+            <div class="tunnel-stage" id="tunnelStage">
+              <!-- Dynamically populated 3D cards at staggered X, Y, Z coordinates -->
+            </div>
           </div>
-          <p class="sh-text">
-            A curated collection of aerospace hardware integrations, ISRO certifications, on-field sounding rocket launches, and media features. Scroll to experience smooth scale-down entrances.
-          </p>
+
+          <!-- Bottom HUD Metrics & Scroll Progress -->
+          <footer class="tunnel-bottom-hud wrap" aria-hidden="true">
+            <span class="mono">DEPTH: <span id="tunnelDepthMetric">-2800m</span></span>
+            <div class="tunnel-progress-bar">
+              <div class="tunnel-progress-fill" id="tunnelProgressFill"></div>
+            </div>
+            <span class="mono">12 CERTIFIED ARCHIVES</span>
+          </footer>
         </div>
 
-        <!-- Filter Pills -->
-        <div class="showcase-filters" role="tablist" aria-label="Showcase Categories">
-          <button type="button" class="flt showcase-filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>All Archives</span>
-            <span class="flt-count">12</span>
-          </button>
-          <button type="button" class="flt showcase-filter-btn" data-filter="rocketry" role="tab" aria-selected="false">
-            <span>Rocketry &amp; Aerospace</span>
-            <span class="flt-count">4</span>
-          </button>
-          <button type="button" class="flt showcase-filter-btn" data-filter="certifications" role="tab" aria-selected="false">
-            <span>ISRO &amp; Certifications</span>
-            <span class="flt-count">5</span>
-          </button>
-          <button type="button" class="flt showcase-filter-btn" data-filter="leadership" role="tab" aria-selected="false">
-            <span>Leadership &amp; Media</span>
-            <span class="flt-count">3</span>
-          </button>
-        </div>
-
-        <!-- Showcase Grid -->
-        <div class="showcase-grid" id="showcaseGrid" aria-live="polite">
-          <!-- Dynamically populated by image-showcase.js with smooth zoom-out entrance -->
-        </div>
+        <!-- Static 2D Grid Fallback for Reduced-Motion Users -->
+        <div class="tunnel-static-fallback wrap" id="tunnelStaticFallback"></div>
       </div>
     </section>
 
