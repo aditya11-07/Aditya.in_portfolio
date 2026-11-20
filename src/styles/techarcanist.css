@@ -2216,116 +2216,208 @@ html.booting .boot {
 /* ═══════════════════════════════════════════════════════════════════════════
    ═══ 3D WARP FLIGHT STREAM SECTION (Cosmic Gallery Fly-Through) ══════════
    ═══════════════════════════════════════════════════════════════════════════ */
-.flight-stream-sec {
+/* ═══════════════════════════════════════════════════════════════════
+   IMAGE SHOWCASE (ZOOM-OUT SCROLL ENTRANCE & RESPONSIVE GRID)
+   ═══════════════════════════════════════════════════════════════════ */
+.showcase-sec {
   position: relative;
   overflow: hidden;
-  padding: 30px 0;
+  padding: 80px 0;
 }
 
-.flight-stream-viewport {
-  position: relative;
-  width: 100%;
-  height: 620px;
-  overflow: hidden;
-  perspective: 800px;
-  perspective-origin: 50% 50%;
-  background: radial-gradient(circle at 50% 50%, #080c14 0%, #030509 70%, #010204 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--r);
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.98), 0 24px 60px rgba(0, 0, 0, 0.8);
-  cursor: grab;
-  user-select: none;
+.showcase-counter {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
 }
 
-.flight-stream-viewport:active {
-  cursor: grabbing;
-}
-
-.flight-stars {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.flight-stream-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 480px;
-  height: 320px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
-  filter: blur(50px);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.flight-stage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
+.showcase-filters {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
 }
 
-.flight-card {
-  position: absolute;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #000;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.9);
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Card Container with Viewport Entrance Animation ── */
+.showcase-card {
+  position: relative;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: var(--panel);
   overflow: hidden;
-  pointer-events: auto;
   cursor: pointer;
-  transform-origin: 50% 50%;
-  will-change: transform, opacity, filter;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+
+  /* Initial State before Viewport Entry:
+     Starts slightly zoomed-in and faded out */
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  transition-delay: calc(var(--stagger, 0) * 0.08s);
+  will-change: opacity, transform;
 }
 
-.flight-card.is-colorful,
-.flight-card:hover,
-.flight-card:active {
-  border: 2px solid var(--accent) !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.98), 0 0 35px var(--accent-glow) !important;
-  z-index: 1000 !important;
-  filter: grayscale(0%) contrast(1.05) brightness(1.05) blur(0px) !important;
-  -webkit-filter: grayscale(0%) contrast(1.05) brightness(1.05) blur(0px) !important;
+/* In-View Settled State: Natural Scale(1) and Full Opacity */
+.showcase-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.flight-card-media {
+/* ── Media Wrapper: Enforces 16/10 Aspect Ratio for 0 CLS ── */
+.showcase-card-media {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: #000;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
+  background: #000;
 }
 
-.flight-card-media img {
+/* ── Inner Image: Smooth Zoom-Out (Scale-Down) on Entrance ── */
+.showcase-card-media img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s var(--ease), filter 0.3s ease;
+  transform: scale(1.16); /* Initial zoom-in */
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+  will-change: transform;
 }
 
-.flight-card.is-colorful .flight-card-media img,
-.flight-card:hover .flight-card-media img,
-.flight-card:active .flight-card-media img {
-  transform: scale(1.06);
-  filter: grayscale(0%) contrast(1.05) brightness(1.05) !important;
-  -webkit-filter: grayscale(0%) contrast(1.05) brightness(1.05) !important;
+/* Image settles down to scale(1) once in view */
+.showcase-card.in-view .showcase-card-media img {
+  transform: scale(1);
 }
 
-@media (max-width: 760px) {
-  .flight-stream-viewport {
-    height: 480px;
+/* ── Refined Subtle Hover State ── */
+.showcase-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow:
+    0 22px 50px -10px rgba(0, 0, 0, 0.7),
+    0 0 30px -5px rgba(163, 190, 140, 0.16);
+  transform: translateY(-4px);
+}
+
+.showcase-card:hover .showcase-card-media img {
+  transform: scale(1.05); /* Slight crisp hover scale shift */
+}
+
+/* ── Typography & Card Content ── */
+.showcase-card-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: var(--panel);
+}
+
+.showcase-card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.showcase-card-title {
+  font-family: var(--disp);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0 0 6px 0;
+  transition: color 0.25s ease;
+}
+
+.showcase-card:hover .showcase-card-title {
+  color: #fff;
+}
+
+.showcase-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.showcase-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 0.72rem;
+  color: var(--faint);
+}
+
+.showcase-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+  font-weight: 500;
+  transition: gap 0.25s ease;
+}
+
+.showcase-card:hover .showcase-card-action {
+  gap: 8px;
+}
+
+/* ── Respect prefers-reduced-motion: reduce ── */
+@media (prefers-reduced-motion: reduce) {
+  .showcase-card,
+  .showcase-card.in-view,
+  .showcase-card-media img,
+  .showcase-card.in-view .showcase-card-media img {
+    transform: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+  .showcase-card {
+    opacity: 1 !important;
+  }
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 1024px) {
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .showcase-sec {
+    padding: 50px 0;
+  }
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .showcase-card-body {
+    padding: 14px 16px 16px;
   }
 }
 

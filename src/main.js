@@ -7,7 +7,7 @@
 import { portfolioData } from './data/portfolioData.js';
 import { initContentEditor, getActivePortfolioData } from './ui/ContentEditor.js';
 import { initTechArcanistEngine } from './scripts/techarcanist-engine.js';
-import { initFlightStream } from './scripts/flight-stream.js';
+import { initImageShowcase } from './scripts/image-showcase.js';
 
 // Convert markdown bold **text** to <strong>text</strong>
 function parseMarkdownText(str) {
@@ -464,6 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize 3D Warp Flight Stream with verified gallery photos
-  initFlightStream();
+  // Initialize professional image showcase with zoom-out scroll entrance
+  initImageShowcase();
 });

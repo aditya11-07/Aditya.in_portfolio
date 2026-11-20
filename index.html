@@ -71,7 +71,7 @@
       <!-- Desktop Nav -->
       <nav class="nav" id="nav" aria-label="Main Navigation">
         <a href="#about">About</a>
-        <a href="#flight-stream">Archives</a>
+        <a href="#showcase">Showcase</a>
         <a href="#timeline">Timeline</a>
         <a href="#skills">Toolbox</a>
         <a href="#experience">Experience</a>
@@ -244,20 +244,43 @@
       </div>
     </section>
 
-    <!-- ═══ 3D FLIGHT STREAM / VISUAL ARCHIVES ═══ -->
-    <section class="sec flight-stream-sec" id="flight-stream">
+    <!-- ═══ 02. IMAGE SHOWCASE / CERTIFIED ARCHIVES ═══ -->
+    <section class="sec showcase-sec" id="showcase">
       <div class="wrap">
-        <div class="flight-stream-viewport" id="flightStreamContainer" aria-label="Interactive 3D photo flight stream">
-          <!-- Ambient 3D Starfield Canvas -->
-          <canvas class="flight-stars" id="flightStarsCanvas"></canvas>
-
-          <!-- Cosmic Horizon Glow Overlay -->
-          <div class="flight-stream-glow" aria-hidden="true"></div>
-
-          <!-- 3D Perspective Stage -->
-          <div class="flight-stage" id="flightStage">
-            <!-- Flying 3D Cards rendered dynamically by flight-stream.js -->
+        <div class="sh">
+          <p class="sh-label mono"><span>02</span>Visual Showcase</p>
+          <div class="sh-row">
+            <h2>Engineering Archives &amp; Milestones</h2>
+            <div class="showcase-counter mono" id="showcaseCounter">12 Items</div>
           </div>
+          <p class="sh-text">
+            A curated collection of aerospace hardware integrations, ISRO certifications, on-field sounding rocket launches, and media features. Scroll to experience smooth scale-down entrances.
+          </p>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="showcase-filters" role="tablist" aria-label="Showcase Categories">
+          <button type="button" class="flt showcase-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            <span>All Archives</span>
+            <span class="flt-count">12</span>
+          </button>
+          <button type="button" class="flt showcase-filter-btn" data-filter="rocketry" role="tab" aria-selected="false">
+            <span>Rocketry &amp; Aerospace</span>
+            <span class="flt-count">4</span>
+          </button>
+          <button type="button" class="flt showcase-filter-btn" data-filter="certifications" role="tab" aria-selected="false">
+            <span>ISRO &amp; Certifications</span>
+            <span class="flt-count">5</span>
+          </button>
+          <button type="button" class="flt showcase-filter-btn" data-filter="leadership" role="tab" aria-selected="false">
+            <span>Leadership &amp; Media</span>
+            <span class="flt-count">3</span>
+          </button>
+        </div>
+
+        <!-- Showcase Grid -->
+        <div class="showcase-grid" id="showcaseGrid" aria-live="polite">
+          <!-- Dynamically populated by image-showcase.js with smooth zoom-out entrance -->
         </div>
       </div>
     </section>
