@@ -6,6 +6,9 @@ dist-ssr
 .idea
 .DS_Store
 *.log
+bin/
+target/
+*.zip
 .env
 .env.*
 .gemini

@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backend": "java backend/StandaloneServer.java",
+    "backend:compile": "javac -d bin backend/StandaloneServer.java",
+    "backend:start": "java -cp bin com.aditya.portfolio.StandaloneServer"
   },
   "devDependencies": {
     "vite": "^6.2.0"

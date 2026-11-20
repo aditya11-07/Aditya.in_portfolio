@@ -355,29 +355,73 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // 6. Contact Form Dispatcher
+  // 6. Contact Form Dispatcher (Connected to Java Backend with Graceful Mailto Fallback)
   const contactForm = document.getElementById('contactForm');
   const statusBanner = document.getElementById('contactStatusBanner');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('name')?.value.trim() || 'Colleague';
       const email = document.getElementById('email')?.value.trim() || '';
       const subject = document.getElementById('subject')?.value.trim() || 'Engineering Opportunity';
       const message = document.getElementById('message')?.value.trim() || '';
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
 
       if (!statusBanner) return;
 
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Send Message →';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending to Backend...';
+      }
+
+      // Try Java REST Backend first (http://localhost:8080 or relative /api/contact)
+      try {
+        const backendUrl = window.location.port === '3000' || window.location.port === '5173'
+          ? '/api/contact'
+          : 'http://localhost:8085/api/contact';
+
+        const response = await fetch(backendUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (response.ok) {
+          const resData = await response.json();
+          statusBanner.className = 'contact-status-banner success';
+          statusBanner.style.display = 'block';
+          statusBanner.innerHTML = `
+            <strong>✓ Message Received by Java Backend!</strong> Thank you, ${name}. Your inquiry has been securely logged to the database. Aditya will get back to you shortly.
+          `;
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '✓ Message Sent!';
+            setTimeout(() => { submitBtn.innerHTML = originalBtnText; }, 3000);
+          }
+          return;
+        }
+      } catch (err) {
+        // Backend offline or running in standalone static environment (e.g. GitHub Pages)
+        console.log('Java backend offline, falling back to mail client dispatcher:', err);
+      }
+
+      // Fallback: Launch mail client dispatcher if Java backend is offline
       statusBanner.className = 'contact-status-banner success';
       statusBanner.style.display = 'block';
       statusBanner.innerHTML = `
         <strong>✓ Message prepared!</strong> Opening your email client to reach Aditya Pandey directly (<a href="mailto:adityavaibhavpandey@gmail.com" style="color: inherit; text-decoration: underline;">adityavaibhavpandey@gmail.com</a>).
       `;
 
-      const mailtoUrl = `mailto:adityavaibhavpandey@gmail.com?subject=${encodeURIComponent(`[${subject}] from ${name}`)}&body=${encodeURIComponent(`${message}\n\n---\nSent by: ${name} (${email})`)}`;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
 
+      const mailtoUrl = `mailto:adityavaibhavpandey@gmail.com?subject=${encodeURIComponent(`[${subject}] from ${name}`)}&body=${encodeURIComponent(`${message}\n\n---\nSent by: ${name} (${email})`)}`;
       setTimeout(() => {
         window.location.href = mailtoUrl;
       }, 300);
