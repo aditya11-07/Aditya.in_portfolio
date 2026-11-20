@@ -244,47 +244,51 @@
       </div>
     </section>
 
-    <!-- ═══ 02. 3D DEPTH-TUNNEL SHOWCASE ═══ -->
-    <section class="tunnel-section" id="showcase" aria-label="3D Depth-Tunnel Showcase">
-      <!-- Native Scroll Track: Drives 3D Z-axis camera and card progression smoothly via scroll -->
-      <div class="tunnel-track" id="tunnelTrack">
-        <!-- Sticky 100vh Viewport: Pinned while scrolling through the tunnel depth -->
-        <div class="tunnel-viewport" id="tunnelViewport">
-          <!-- Background Cosmic Void Starfield Canvas -->
-          <canvas class="tunnel-stars" id="tunnelStarsCanvas"></canvas>
-
-          <!-- Cosmic Horizon Radial Glow -->
-          <div class="tunnel-glow" aria-hidden="true"></div>
-
-          <!-- Section Head HUD Overlay (Top) -->
-          <header class="tunnel-hud wrap" aria-hidden="false">
-            <div class="tunnel-hud-badge mono">
-              <span class="hud-dot"></span>
-              <span>3D DEPTH TUNNEL // Z-AXIS PARALLAX</span>
+    <!-- ═══ 02. CONTINUOUS 3D FLOATING IMAGE SHOWCASE ═══ -->
+    <section class="sec floating-showcase-sec" id="showcase">
+      <div class="wrap">
+        <div class="sh">
+          <p class="sh-label mono"><span>02</span>Visual Showcase</p>
+          <div class="sh-row">
+            <h2>3D Deep-Space Visual Gallery</h2>
+            <div class="floating-controls-hint mono hide-sm">
+              <span class="hint-pill">Drag to Orbit</span>
+              <span class="hint-pill">Scroll to Zoom</span>
+              <span class="hint-pill">Hover to Inspect</span>
             </div>
-            <h2 class="tunnel-hud-title">Engineering Archives &amp; Milestones</h2>
-            <p class="tunnel-hud-sub">Scroll to navigate the 3D cosmic tunnel. Hover to inspect, click to expand full details.</p>
-          </header>
+          </div>
+          <p class="sh-text">
+            Continuously animated 3D perspective stream. Images emerge from deep space, bloom into focus, and fly toward the viewer. Drag anywhere to freely pan and orbit the camera.
+          </p>
+        </div>
 
-          <!-- 3D Perspective Stage -->
-          <div class="tunnel-stage-wrap" id="tunnelStageWrap">
-            <div class="tunnel-stage" id="tunnelStage">
-              <!-- Dynamically populated 3D cards at staggered X, Y, Z coordinates -->
+        <!-- 3D Interactive Viewport Container -->
+        <div class="floating-viewport" id="floatingViewport" aria-label="Interactive 3D Floating Image Gallery">
+          <!-- Multi-Layered Starfield Canvas -->
+          <canvas class="floating-stars" id="floatingStarsCanvas"></canvas>
+
+          <!-- Cosmic Ambient Radial Glow -->
+          <div class="floating-glow" aria-hidden="true"></div>
+
+          <!-- 3D Perspective Camera Stage -->
+          <div class="floating-stage-wrap" id="floatingStageWrap">
+            <div class="floating-stage" id="floatingStage">
+              <!-- Dynamically populated 3D project cards -->
             </div>
           </div>
 
-          <!-- Bottom HUD Metrics & Scroll Progress -->
-          <footer class="tunnel-bottom-hud wrap" aria-hidden="true">
-            <span class="mono">DEPTH: <span id="tunnelDepthMetric">-2800m</span></span>
-            <div class="tunnel-progress-bar">
-              <div class="tunnel-progress-fill" id="tunnelProgressFill"></div>
+          <!-- Bottom Floating HUD -->
+          <div class="floating-hud mono" aria-hidden="true">
+            <div class="floating-hud-status">
+              <span class="hud-pulse-dot"></span>
+              <span>CONTINUOUS 3D STREAM ACTIVE</span>
             </div>
-            <span class="mono">12 CERTIFIED ARCHIVES</span>
-          </footer>
+            <div class="floating-hud-info">
+              <span>12 ARCHIVES</span>
+              <span>CLICK TO EXPAND</span>
+            </div>
+          </div>
         </div>
-
-        <!-- Static 2D Grid Fallback for Reduced-Motion Users -->
-        <div class="tunnel-static-fallback wrap" id="tunnelStaticFallback"></div>
       </div>
     </section>
 

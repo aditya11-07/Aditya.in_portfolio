@@ -7,7 +7,7 @@
 import { portfolioData } from './data/portfolioData.js';
 import { initContentEditor, getActivePortfolioData } from './ui/ContentEditor.js';
 import { initTechArcanistEngine } from './scripts/techarcanist-engine.js';
-import { initDepthTunnel } from './scripts/depth-tunnel.js';
+import { initFloatingGallery } from './scripts/floating-gallery.js';
 
 // Convert markdown bold **text** to <strong>text</strong>
 function parseMarkdownText(str) {
@@ -464,6 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize 3D Depth-Tunnel / Z-Axis Parallax Showcase
-  initDepthTunnel();
+  // Initialize Continuously Animated, Interactive 3D Floating Gallery
+  initFloatingGallery();
 });
