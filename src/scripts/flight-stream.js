@@ -1,8 +1,10 @@
 /**
- * Aditya Pandey Portfolio - 3D Warp Flight Stream (Black & White, Depth-Blurred, Scattered)
- * Features 12 verified photographs & certificates in pure black and white,
- * popping out and zooming through 3D space with dynamic depth blur.
- * Minimalist container: only the certificates and photos, no external clutter.
+ * Aditya Pandey Portfolio - 3D Warp Flight Stream
+ * - Images pop out from everywhere across the canvas (not from center)
+ * - Each image follows its own random floating 3D path
+ * - Strict Black & White with dynamic depth-of-field blur by default
+ * - When touched or hovered, turns into VIBRANT FULL COLOR with accent glow
+ * - Minimalist container: only certificates and Aditya's photos
  */
 
 export const flightGalleryData = [
@@ -103,7 +105,7 @@ export function initFlightStream() {
   let width = (canvas.width = container.clientWidth);
   let height = (canvas.height = container.clientHeight);
 
-  const starCount = 240;
+  const starCount = 200;
   const stars = [];
 
   for (let i = 0; i < starCount; i++) {
@@ -113,67 +115,144 @@ export function initFlightStream() {
       z: Math.random() * 2000,
       prevZ: 0,
       size: Math.random() * 1.5 + 0.5,
-      baseAlpha: Math.random() * 0.65 + 0.25
+      baseAlpha: Math.random() * 0.6 + 0.2
     });
   }
 
-  // 2. Setup 24 Scattered 3D Cards Pool
+  // 2. Setup 24 Cards that pop out from everywhere across the screen
   const cards = [];
   stage.innerHTML = '';
 
-  // Organic scattered layout across the 3D viewing frustum
-  const scatteredSlots = [
-    { x: -380, y: -190, rx: 7, ry: -8, rz: -3 },
-    { x: 380, y: -190, rx: 7, ry: 8, rz: 3 },
-    { x: -240, y: -220, rx: 9, ry: -4, rz: 2 },
-    { x: 230, y: -215, rx: 9, ry: 4, rz: -2 },
-    { x: -420, y: -70, rx: 4, ry: -10, rz: -4 },
-    { x: 420, y: -65, rx: 4, ry: 10, rz: 4 },
-    { x: -160, y: -160, rx: 6, ry: -3, rz: 1 },
-    { x: 170, y: -155, rx: 6, ry: 3, rz: -1 },
-
-    { x: -290, y: -10, rx: 2, ry: -9, rz: -2 },
-    { x: 290, y: -10, rx: 2, ry: 9, rz: 2 },
-    { x: -90, y: -70, rx: 4, ry: -2, rz: 1 },
-    { x: 90, y: -60, rx: 4, ry: 2, rz: -1 },
-    { x: -120, y: 55, rx: -3, ry: -3, rz: -2 },
-    { x: 120, y: 45, rx: -3, ry: 3, rz: 2 },
-
-    { x: -390, y: 150, rx: -7, ry: -8, rz: -3 },
-    { x: 390, y: 150, rx: -7, ry: 8, rz: 3 },
-    { x: -240, y: 195, rx: -9, ry: -4, rz: 2 },
-    { x: 240, y: 195, rx: -9, ry: 4, rz: -2 },
-    { x: -420, y: 75, rx: -3, ry: -10, rz: 3 },
-    { x: 420, y: 75, rx: -3, ry: 10, rz: -3 },
-    { x: -170, y: 165, rx: -6, ry: -3, rz: -1 },
-    { x: 170, y: 165, rx: -6, ry: 3, rz: 1 },
-
-    { x: -330, y: 220, rx: -8, ry: -6, rz: 2 },
-    { x: 330, y: 220, rx: -8, ry: 6, rz: -2 }
-  ];
-
   const totalInstances = 24;
-  const zRange = 2500;
-  const zStep = zRange / totalInstances;
+  const Z_MIN = -2600;
+  const Z_MAX = 380;
+  const scale = width < 760 ? 0.8 : 1.0;
+
+  let activeTouchCard = null;
+  let touchTimeout = null;
+  let isCardHovered = false;
+
+  function setCardColorful(card, isColor) {
+    card.isColorful = isColor;
+    if (isColor) {
+      card.el.classList.add('is-colorful');
+      card.el.style.filter = 'grayscale(0%) contrast(1.05) brightness(1.05) blur(0px)';
+      card.el.style.webkitFilter = 'grayscale(0%) contrast(1.05) brightness(1.05) blur(0px)';
+    } else {
+      card.el.classList.remove('is-colorful');
+    }
+  }
+
+  // Helper to assign a random spawn position and trajectory from anywhere
+  function resetCard(card, isInit = false) {
+    const marginX = width * 0.44;
+    const marginY = height * 0.40;
+
+    // Screen-space position: everywhere across the canvas (corners, borders, center-off-center)
+    card.screenX = (Math.random() - 0.5) * (marginX * 2);
+    card.screenY = (Math.random() - 0.5) * (marginY * 2);
+
+    // Random drift velocity along X and Y (unique wandering path)
+    card.driftX = (Math.random() - 0.5) * 1.4;
+    card.driftY = (Math.random() - 0.5) * 1.0;
+
+    // Organic floating wave parameters
+    card.ampX = Math.random() * 28 + 8;
+    card.ampY = Math.random() * 22 + 6;
+    card.freqX = Math.random() * 0.015 + 0.007;
+    card.freqY = Math.random() * 0.015 + 0.007;
+    card.phaseX = Math.random() * Math.PI * 2;
+    card.phaseY = Math.random() * Math.PI * 2;
+
+    // 3D Rotational angles and gentle spin
+    card.rx = (Math.random() - 0.5) * 14;
+    card.ry = (Math.random() - 0.5) * 18;
+    card.rotZ = (Math.random() - 0.5) * 10;
+    card.vrotZ = (Math.random() - 0.5) * 0.03;
+
+    // Individual forward speed (random velocity)
+    card.vz = Math.random() * 1.6 + 3.2;
+
+    if (isInit) {
+      // Stagger depths evenly across space for immediate rich density
+      card.z = -Math.random() * 2500 + 100;
+    } else {
+      // Respawn deep in background
+      card.z = Z_MIN - Math.random() * 300;
+    }
+  }
 
   for (let i = 0; i < totalInstances; i++) {
     const item = flightGalleryData[i % flightGalleryData.length];
-    const pos = scatteredSlots[i % scatteredSlots.length];
 
     const el = document.createElement('div');
     el.className = 'flight-card';
     el.setAttribute('data-id', item.id);
-    el.style.width = `${item.w}px`;
-    el.style.height = `${item.h}px`;
+    el.style.width = `${Math.round(item.w * scale)}px`;
+    el.style.height = `${Math.round(item.h * scale)}px`;
 
-    // Only the pure certificate / photograph image, no overlay text or captions
+    // Only the pure certificate / photograph image
     el.innerHTML = `
       <div class="flight-card-media">
         <img src="${item.src}" alt="${item.title}" loading="lazy" />
       </div>
     `;
 
-    // Lightbox Modal Expansion on Click
+    const cardObj = {
+      el,
+      item,
+      screenX: 0,
+      screenY: 0,
+      driftX: 0,
+      driftY: 0,
+      ampX: 0,
+      ampY: 0,
+      freqX: 0,
+      freqY: 0,
+      phaseX: 0,
+      phaseY: 0,
+      rx: 0,
+      ry: 0,
+      rotZ: 0,
+      vrotZ: 0,
+      z: 0,
+      vz: 3.5,
+      isColorful: false
+    };
+
+    resetCard(cardObj, true);
+
+    // Desktop hover -> turn colorful
+    el.addEventListener('pointerenter', () => {
+      setCardColorful(cardObj, true);
+      isCardHovered = true;
+    });
+
+    el.addEventListener('pointerleave', () => {
+      setCardColorful(cardObj, false);
+      isCardHovered = false;
+    });
+
+    // Mobile touch -> turn colorful
+    el.addEventListener('touchstart', (e) => {
+      if (activeTouchCard && activeTouchCard !== cardObj) {
+        setCardColorful(activeTouchCard, false);
+      }
+      setCardColorful(cardObj, true);
+      activeTouchCard = cardObj;
+      isCardHovered = true;
+
+      if (touchTimeout) clearTimeout(touchTimeout);
+      touchTimeout = setTimeout(() => {
+        if (activeTouchCard) {
+          setCardColorful(activeTouchCard, false);
+          activeTouchCard = null;
+          isCardHovered = false;
+        }
+      }, 4000);
+    }, { passive: true });
+
+    // Click -> open full image in lightbox modal
     el.addEventListener('click', () => {
       const modal = document.getElementById('portfolioModal');
       if (modal) {
@@ -193,46 +272,30 @@ export function initFlightStream() {
     });
 
     stage.appendChild(el);
-
-    const cardObj = {
-      el,
-      x: pos.x,
-      y: pos.y,
-      z: -((i + 1) * zStep) + 200,
-      rx: pos.rx,
-      ry: pos.ry,
-      rotZ: pos.rz,
-      baseX: pos.x,
-      baseY: pos.y,
-      isHovered: false
-    };
-
-    el.addEventListener('mouseenter', () => {
-      cardObj.isHovered = true;
-      isCardHovered = true;
-    });
-
-    el.addEventListener('mouseleave', () => {
-      cardObj.isHovered = false;
-      isCardHovered = false;
-    });
-
     cards.push(cardObj);
   }
 
-  // 3. Mouse Parallax & Interaction
+  // Clear touch when tapping outside cards
+  container.addEventListener('touchstart', (e) => {
+    if (!e.target.closest('.flight-card') && activeTouchCard) {
+      setCardColorful(activeTouchCard, false);
+      activeTouchCard = null;
+      isCardHovered = false;
+    }
+  }, { passive: true });
+
+  // 3. Mouse Parallax
   let mouseX = 0;
   let mouseY = 0;
   let targetMouseX = 0;
   let targetMouseY = 0;
-  let isCardHovered = false;
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5;
     const ny = (e.clientY - rect.top) / rect.height - 0.5;
-    targetMouseX = nx * 80;
-    targetMouseY = ny * 60;
+    targetMouseX = nx * 70;
+    targetMouseY = ny * 50;
   });
 
   container.addEventListener('mouseleave', () => {
@@ -240,27 +303,25 @@ export function initFlightStream() {
     targetMouseY = 0;
   });
 
-  // Handle Resize
   window.addEventListener('resize', () => {
     width = canvas.width = container.clientWidth;
     height = canvas.height = container.clientHeight;
   });
 
-  // 4. Animation Loop (Popping Out, Zooming, Depth Blur, Black & White)
-  const Z_MIN = -2600;
-  const Z_MAX = 480;
+  // 4. Animation Loop
+  let time = 0;
 
   function animate() {
     requestAnimationFrame(animate);
+    time += 1;
 
     // Smooth mouse interpolation
     mouseX += (targetMouseX - mouseX) * 0.08;
     mouseY += (targetMouseY - mouseY) * 0.08;
 
-    // A. Render Cosmic Background Stars (Monochrome Slate / Silver Dust)
+    // A. Background Stars
     ctx.clearRect(0, 0, width, height);
-
-    const starSpeed = isCardHovered ? 1.0 : 4.5;
+    const starSpeed = isCardHovered ? 0.8 : 3.8;
 
     stars.forEach(star => {
       star.prevZ = star.z;
@@ -274,17 +335,15 @@ export function initFlightStream() {
 
       const f = 600;
       const k = f / (f + star.z);
-      const px = width / 2 + (star.x - mouseX * 2.0) * k;
-      const py = height / 2 + (star.y - mouseY * 2.0) * k;
+      const px = width / 2 + (star.x - mouseX * 1.8) * k;
+      const py = height / 2 + (star.y - mouseY * 1.8) * k;
 
       const pk = f / (f + star.prevZ);
-      const prevX = width / 2 + (star.x - mouseX * 2.0) * pk;
-      const prevY = height / 2 + (star.y - mouseY * 2.0) * pk;
+      const prevX = width / 2 + (star.x - mouseX * 1.8) * pk;
+      const prevY = height / 2 + (star.y - mouseY * 1.8) * pk;
 
       if (px >= 0 && px <= width && py >= 0 && py <= height) {
         const alpha = Math.min(1, Math.max(0, (2000 - star.z) / 900)) * star.baseAlpha;
-
-        // Subtle monochrome silver/white star dust
         ctx.strokeStyle = `rgba(220, 230, 245, ${alpha.toFixed(2)})`;
         ctx.lineWidth = Math.max(0.6, star.size * k * 1.8);
         ctx.beginPath();
@@ -294,58 +353,80 @@ export function initFlightStream() {
       }
     });
 
-    // B. Animate 3D Black & White Photos Popping Out & Zooming
-    const flightSpeed = isCardHovered ? 0.8 : 3.8;
+    // B. Animate 3D Cards along individual random paths from everywhere
+    const speedFactor = isCardHovered ? 0.25 : 1.0;
 
     cards.forEach(card => {
-      card.z += flightSpeed;
+      // Forward motion
+      card.z += card.vz * speedFactor;
 
-      // When the card passes the camera and fades out, recycle to the back
+      // Random path progression in screen space
+      card.screenX += card.driftX * speedFactor;
+      card.screenY += card.driftY * speedFactor;
+      card.rotZ += card.vrotZ * speedFactor;
+
+      // When card passes camera and fades out, respawn from a new random location
       if (card.z > Z_MAX) {
-        card.z = Z_MIN + (Math.random() * 220 - 110);
-        card.x = card.baseX + (Math.random() - 0.5) * 60;
-        card.y = card.baseY + (Math.random() - 0.5) * 40;
+        resetCard(card, false);
       }
 
-      // Calculate Opacity:
-      // Fade in smoothly at distance (-2600 to -1900)
-      // Fully visible throughout flight (-1900 to 100)
-      // Fade out as it zooms past the screen (100 to 480)
+      // Compute perspective scale factor k:
+      // perspective: 800px => k = 800 / (800 - card.z)
+      const f = 800;
+      const k = f / (f - card.z);
+
+      // Compute wave oscillation for organic floating path
+      const waveX = Math.sin(time * card.freqX + card.phaseX) * card.ampX;
+      const waveY = Math.cos(time * card.freqY + card.phaseY) * card.ampY;
+
+      // Screen position target (parallax + random path + wave)
+      const curScreenX = card.screenX + waveX - mouseX;
+      const curScreenY = card.screenY + waveY - mouseY;
+
+      // Convert to 3D coordinates so card appears exactly at (curScreenX, curScreenY)
+      // and NOT converging to the center vanishing point!
+      const x3d = curScreenX / k;
+      const y3d = curScreenY / k;
+
+      // Opacity Curve:
+      // Fade in smoothly at distance (-2600 to -1800)
+      // Fully visible throughout flight (-1800 to 80)
+      // Fade out as it zooms past the screen (80 to 380)
       let opacity = 1;
-      if (card.z < -1900) {
-        opacity = (card.z - Z_MIN) / (-1900 - Z_MIN);
-      } else if (card.z > 100) {
-        opacity = 1 - (card.z - 100) / (Z_MAX - 100);
+      if (card.z < -1800) {
+        opacity = (card.z - Z_MIN) / (-1800 - Z_MIN);
+      } else if (card.z > 80) {
+        opacity = 1 - (card.z - 80) / (Z_MAX - 80);
       }
       opacity = Math.max(0, Math.min(1, opacity));
 
-      // Calculate Depth Blur (Blurred far away, sharp in focus, blurred as it pops close)
+      // Calculate Depth Blur (only when not colorful / touched)
       let blurPx = 0;
-      if (card.z < -200) {
-        blurPx = Math.min(8.0, Math.abs(card.z + 200) / 280);
-      } else if (card.z > 100) {
-        blurPx = Math.min(6.0, (card.z - 100) / 60);
+      if (!card.isColorful) {
+        if (card.z < -250) {
+          blurPx = Math.min(8.0, Math.abs(card.z + 250) / 280);
+        } else if (card.z > 100) {
+          blurPx = Math.min(6.0, (card.z - 100) / 60);
+        }
       }
 
-      // 3D Perspective translation & rotation
-      const curX = card.x - mouseX;
-      const curY = card.y - mouseY;
-      const rotY = card.ry + mouseX * 0.04;
-      const rotX = card.rx - mouseY * 0.04;
+      // Apply 3D Transform
+      const rotY = card.ry + mouseX * 0.03;
+      const rotX = card.rx - mouseY * 0.03;
 
-      card.el.style.transform = `translate3d(${curX}px, ${curY}px, ${card.z}px) rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${card.rotZ}deg)`;
+      card.el.style.transform = `translate3d(${x3d.toFixed(1)}px, ${y3d.toFixed(1)}px, ${card.z.toFixed(1)}px) rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) rotateZ(${card.rotZ.toFixed(1)}deg)`;
       card.el.style.opacity = opacity.toFixed(3);
       card.el.style.visibility = opacity <= 0.01 ? 'hidden' : 'visible';
 
-      // Apply dynamic depth blur and strict Black & White (Grayscale)
-      if (!card.isHovered) {
+      // Apply Black & White + Depth Blur, or Vibrant Color if touched/hovered
+      if (!card.isColorful) {
         const blurStr = blurPx > 0.3 ? ` blur(${blurPx.toFixed(1)}px)` : '';
         const filterVal = `grayscale(100%) contrast(1.15) brightness(0.92)${blurStr}`;
         card.el.style.filter = filterVal;
         card.el.style.webkitFilter = filterVal;
       } else {
-        card.el.style.filter = 'grayscale(100%) contrast(1.25) brightness(1.1) blur(0px)';
-        card.el.style.webkitFilter = 'grayscale(100%) contrast(1.25) brightness(1.1) blur(0px)';
+        card.el.style.filter = 'grayscale(0%) contrast(1.05) brightness(1.05) blur(0px)';
+        card.el.style.webkitFilter = 'grayscale(0%) contrast(1.05) brightness(1.05) blur(0px)';
       }
     });
   }
