@@ -2284,8 +2284,8 @@ html.booting .boot {
 
 .flight-card {
   position: absolute;
-  width: 275px;
-  height: 185px;
+  width: 230px;
+  height: 155px;
   border-radius: 8px;
   border: 1px solid var(--line-3);
   background: var(--panel);
@@ -2388,8 +2388,8 @@ html.booting .boot {
     height: 480px;
   }
   .flight-card {
-    width: 220px;
-    height: 155px;
+    width: 190px;
+    height: 130px;
   }
   .flight-stream-hud {
     font-size: 0.6rem;

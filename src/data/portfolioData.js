@@ -68,6 +68,8 @@ export const portfolioData = {
     { label: "Aditya — PSIT Teamwork Uniform", path: "/images/gallery/gallery-08.jpg" },
     { label: "Vyomnauts Team at TRISHUL II Launcher", path: "/images/gallery/gallery-09.jpg" },
     { label: "Aditya with Sudarshan Trishul Rocket", path: "/images/gallery/gallery-10.jpg" },
+    { label: "Field Launch Rail & Sounding Rocket", path: "/images/gallery/gallery-11.jpg" },
+    { label: "The Jam Spot Event — Media Coverage", path: "/images/gallery/gallery-12.jpg" },
     { label: "Water Level Indicator Circuit", path: "/images/water_level_indicator.webp" },
     { label: "Aditya Profile", path: "/images/Aditya_Profile.png" },
     { label: "CanSat 7U Payload", path: "/images/CAN7USAT.png" },

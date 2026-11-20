@@ -1,7 +1,7 @@
 /**
- * Aditya Pandey Portfolio - 3D Warp Flight Stream
- * Inspired by cosmic space warp / 3D fly-through gallery
- * Features 10 verified photographs & certificates flying in 3D perspective space
+ * Aditya Pandey Portfolio - 3D Warp Flight Stream (High-Density & High-Speed)
+ * Recreates the dense cosmic warp fly-through gallery
+ * Features 12 verified photographs & newspaper coverage flying in 3D perspective space
  */
 
 export const flightGalleryData = [
@@ -74,6 +74,20 @@ export const flightGalleryData = [
     title: "Sudarshan Trishul Rocket Integration",
     tag: "SUDARSHAN TRISHUL",
     desc: "Avionics payload integration with the sounding rocket body."
+  },
+  {
+    id: "gallery-11",
+    src: "/images/gallery/gallery-11.jpg",
+    title: "Field Launch Rail & Sounding Rocket",
+    tag: "ROCKETRY LAUNCH PAD",
+    desc: "On-field model rocketry assembly and launch rail alignment."
+  },
+  {
+    id: "gallery-12",
+    src: "/images/gallery/gallery-12.jpg",
+    title: "The Jam Spot Event — Media Coverage",
+    tag: "MEDIA & LEADERSHIP",
+    desc: "Co-founder & organizer of youth open mic and creative arts."
   }
 ];
 
@@ -83,50 +97,68 @@ export function initFlightStream() {
   const canvas = document.getElementById('flightStarsCanvas');
   if (!container || !stage || !canvas) return;
 
-  // 1. Setup Stars Canvas
+  // 1. Setup Stars Canvas (Cosmic Warp Speed Streaks)
   const ctx = canvas.getContext('2d');
   let width = (canvas.width = container.clientWidth);
   let height = (canvas.height = container.clientHeight);
 
-  const starCount = 180;
+  const starCount = 260; // Dense starfield
   const stars = [];
 
   for (let i = 0; i < starCount; i++) {
     stars.push({
-      x: (Math.random() - 0.5) * width * 2.2,
-      y: (Math.random() - 0.5) * height * 2.2,
+      x: (Math.random() - 0.5) * width * 2.4,
+      y: (Math.random() - 0.5) * height * 2.4,
       z: Math.random() * 2000,
-      size: Math.random() * 1.8 + 0.6,
+      prevZ: 0,
+      size: Math.random() * 1.6 + 0.6,
       baseAlpha: Math.random() * 0.7 + 0.3
     });
   }
 
-  // 2. Setup 3D Cards
+  // 2. Setup High-Density 3D Cards Pool (24 active cards for dense layering)
   const cards = [];
-
-  // Distinct trajectory zones to spread cards nicely across the 3D frustum
-  const spreadPositions = [
-    { x: -360, y: -190, rx: 6, ry: -8 },
-    { x: 360, y: -210, rx: 5, ry: 7 },
-    { x: -420, y: 150, rx: -5, ry: -9 },
-    { x: 400, y: 170, rx: -6, ry: 8 },
-    { x: 0, y: -250, rx: 8, ry: 0 },
-    { x: -270, y: -10, rx: 0, ry: -12 },
-    { x: 280, y: -10, rx: 0, ry: 12 },
-    { x: 0, y: 230, rx: -8, ry: 0 },
-    { x: -320, y: -110, rx: 4, ry: -6 },
-    { x: 320, y: -110, rx: 4, ry: 6 }
-  ];
-
-  const totalCards = flightGalleryData.length;
-  const zSpacing = 2400 / totalCards;
-
   stage.innerHTML = '';
 
-  flightGalleryData.forEach((item, index) => {
+  // 24 varied 3D orbit positions across the field
+  const densePositions = [
+    { x: -310, y: -160, rx: 7, ry: -9 },
+    { x: 310, y: -180, rx: 6, ry: 8 },
+    { x: -350, y: 130, rx: -6, ry: -9 },
+    { x: 340, y: 140, rx: -5, ry: 8 },
+    { x: -140, y: -220, rx: 9, ry: -4 },
+    { x: 150, y: -210, rx: 8, ry: 4 },
+    { x: -250, y: -20, rx: 2, ry: -11 },
+    { x: 260, y: -10, rx: 1, ry: 11 },
+    { x: -130, y: 200, rx: -8, ry: -4 },
+    { x: 140, y: 190, rx: -7, ry: 4 },
+    { x: -280, y: -110, rx: 5, ry: -7 },
+    { x: 280, y: -100, rx: 4, ry: 7 },
+    { x: -220, y: 110, rx: -4, ry: -8 },
+    { x: 210, y: 100, rx: -4, ry: 8 },
+    { x: -60, y: -140, rx: 6, ry: -2 },
+    { x: 70, y: -130, rx: 5, ry: 2 },
+    { x: -70, y: 140, rx: -6, ry: -2 },
+    { x: 80, y: 130, rx: -5, ry: 2 },
+    { x: -190, y: -70, rx: 3, ry: -8 },
+    { x: 190, y: -60, rx: 3, ry: 8 },
+    { x: -320, y: 60, rx: -3, ry: -10 },
+    { x: 320, y: 50, rx: -3, ry: 10 },
+    { x: 0, y: -80, rx: 4, ry: 0 },
+    { x: 0, y: 80, rx: -4, ry: 0 }
+  ];
+
+  const totalInstances = 24;
+  const zRange = 2500;
+  const zStep = zRange / totalInstances;
+
+  for (let i = 0; i < totalInstances; i++) {
+    const item = flightGalleryData[i % flightGalleryData.length];
+    const pos = densePositions[i % densePositions.length];
+
     const el = document.createElement('div');
     el.className = 'flight-card';
-    el.dataset.index = index;
+    el.dataset.index = i;
 
     el.innerHTML = `
       <div class="corner tl"></div>
@@ -162,21 +194,19 @@ export function initFlightStream() {
 
     stage.appendChild(el);
 
-    const pos = spreadPositions[index % spreadPositions.length];
-
     cards.push({
       el,
       x: pos.x,
       y: pos.y,
-      z: -((index + 1) * zSpacing),
+      // Evenly distribute Z depth from -2500 up to +200 for immediate dense saturation
+      z: -((i + 1) * zStep) + 250,
       rx: pos.rx,
       ry: pos.ry,
-      rotZ: (Math.random() - 0.5) * 5,
-      speed: 2.2,
+      rotZ: (Math.random() - 0.5) * 6,
       baseX: pos.x,
       baseY: pos.y
     });
-  });
+  }
 
   // 3. Mouse Parallax & Controls
   let mouseX = 0;
@@ -190,8 +220,8 @@ export function initFlightStream() {
     const rect = container.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5;
     const ny = (e.clientY - rect.top) / rect.height - 0.5;
-    targetMouseX = nx * 80;
-    targetMouseY = ny * 60;
+    targetMouseX = nx * 90;
+    targetMouseY = ny * 70;
   });
 
   container.addEventListener('mouseleave', () => {
@@ -227,11 +257,11 @@ export function initFlightStream() {
     height = canvas.height = container.clientHeight;
   });
 
-  // 4. Main Animation Loop
+  // 4. High-Speed Animation Loop (Dense & Fast)
   const Z_MIN = -2600;
   const Z_MAX = 520;
-  const FADE_START = 80; // Starts fading out as it reaches the screen
-  const FADE_END = 500;  // Completely disappears past camera
+  const FADE_START = 80;
+  const FADE_END = 480;
 
   function animate() {
     requestAnimationFrame(animate);
@@ -240,52 +270,60 @@ export function initFlightStream() {
     mouseX += (targetMouseX - mouseX) * 0.08;
     mouseY += (targetMouseY - mouseY) * 0.08;
 
-    // A. Render Stars Warp Field
+    // A. Render Stars Warp Field (Fast High-Velocity Cosmic Streaks)
     ctx.clearRect(0, 0, width, height);
 
-    const starSpeed = isPaused ? 0.3 : (isHovered ? 0.8 : 2.5);
+    const starSpeed = isPaused ? 0.4 : (isHovered ? 1.5 : 6.5);
 
     stars.forEach(star => {
+      star.prevZ = star.z;
       star.z -= starSpeed;
       if (star.z <= 0) {
         star.z = 2000;
-        star.x = (Math.random() - 0.5) * width * 2.2;
-        star.y = (Math.random() - 0.5) * height * 2.2;
+        star.prevZ = 2000;
+        star.x = (Math.random() - 0.5) * width * 2.4;
+        star.y = (Math.random() - 0.5) * height * 2.4;
       }
 
       const f = 600;
       const k = f / (f + star.z);
-      const px = width / 2 + (star.x - mouseX * 2) * k;
-      const py = height / 2 + (star.y - mouseY * 2) * k;
+      const px = width / 2 + (star.x - mouseX * 2.2) * k;
+      const py = height / 2 + (star.y - mouseY * 2.2) * k;
+
+      const pk = f / (f + star.prevZ);
+      const prevX = width / 2 + (star.x - mouseX * 2.2) * pk;
+      const prevY = height / 2 + (star.y - mouseY * 2.2) * pk;
 
       if (px >= 0 && px <= width && py >= 0 && py <= height) {
-        const alpha = Math.min(1, Math.max(0, (2000 - star.z) / 1000)) * star.baseAlpha;
-        const radius = star.size * k * 2.2;
+        const alpha = Math.min(1, Math.max(0, (2000 - star.z) / 900)) * star.baseAlpha;
 
-        ctx.fillStyle = `rgba(163, 190, 140, ${alpha})`;
+        ctx.strokeStyle = `rgba(163, 190, 140, ${alpha})`;
+        ctx.lineWidth = Math.max(0.8, star.size * k * 2.0);
         ctx.beginPath();
-        ctx.arc(px, py, Math.max(0.6, radius), 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(px, py);
+        ctx.stroke();
       }
     });
 
-    // B. Animate 3D Flight Cards
-    const flightSpeed = isPaused ? 0 : (isHovered ? 0.5 : 2.0);
+    // B. Animate 3D Flight Cards (Fast & Dense Flow)
+    // 5.2px per frame when active (fast & dynamic), 1.2px when hovered for easy reading
+    const flightSpeed = isPaused ? 0 : (isHovered ? 1.2 : 5.0);
 
     cards.forEach(card => {
       card.z += flightSpeed;
 
-      // When the card passes the camera and fades out, recycle it to the back
+      // When the card passes the camera and fades out, recycle it to the far back
       if (card.z > Z_MAX) {
-        card.z = Z_MIN + (Math.random() * 200 - 100);
-        card.x = card.baseX + (Math.random() - 0.5) * 80;
-        card.y = card.baseY + (Math.random() - 0.5) * 60;
+        card.z = Z_MIN + (Math.random() * 250 - 120);
+        card.x = card.baseX + (Math.random() - 0.5) * 60;
+        card.y = card.baseY + (Math.random() - 0.5) * 40;
       }
 
       // Calculate Opacity:
-      // Fade in at deep distance (-2600 to -2000)
-      // Solid in flight (-2000 to 80)
-      // Fade out completely as it comes right in front of user (80 to 500)
+      // Fade in smoothly at distance (-2600 to -2000)
+      // Fully visible throughout flight (-2000 to 80)
+      // Fade out completely right as it passes the screen (80 to 480)
       let opacity = 1;
       if (card.z < -2000) {
         opacity = (card.z - Z_MIN) / 600;
@@ -294,11 +332,11 @@ export function initFlightStream() {
       }
       opacity = Math.max(0, Math.min(1, opacity));
 
-      // Perspective translation
+      // Perspective translation & tilt
       const curX = card.x - mouseX;
       const curY = card.y - mouseY;
-      const rotY = card.ry + mouseX * 0.05;
-      const rotX = card.rx - mouseY * 0.05;
+      const rotY = card.ry + mouseX * 0.04;
+      const rotX = card.rx - mouseY * 0.04;
 
       card.el.style.transform = `translate3d(${curX}px, ${curY}px, ${card.z}px) rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${card.rotZ}deg)`;
       card.el.style.opacity = opacity.toFixed(3);
