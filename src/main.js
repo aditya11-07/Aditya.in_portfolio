@@ -7,7 +7,6 @@
 import { portfolioData } from './data/portfolioData.js';
 import { initContentEditor, getActivePortfolioData } from './ui/ContentEditor.js';
 import { initTechArcanistEngine } from './scripts/techarcanist-engine.js';
-import { initFloatingGallery } from './scripts/floating-gallery.js';
 
 // Convert markdown bold **text** to <strong>text</strong>
 function parseMarkdownText(str) {
@@ -507,25 +506,4 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === schematicModalOverlay) closeSchematicModal();
     });
   }
-
-  // Gallery Modal Close Listeners
-  const galleryModalOverlay = document.getElementById('galleryModalOverlay');
-  const galleryModalClose = document.getElementById('galleryModalClose');
-  if (galleryModalClose) {
-    galleryModalClose.addEventListener('click', () => {
-      if (galleryModalOverlay) galleryModalOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  }
-  if (galleryModalOverlay) {
-    galleryModalOverlay.addEventListener('click', (e) => {
-      if (e.target === galleryModalOverlay) {
-        galleryModalOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  // Initialize Dynamic Visual Showcase (Certificates & Photos)
-  initFloatingGallery();
 });

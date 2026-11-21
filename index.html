@@ -71,7 +71,6 @@
       <!-- Desktop Nav -->
       <nav class="nav" id="nav" aria-label="Main Navigation">
         <a href="#about">About</a>
-        <a href="#showcase">Gallery</a>
         <a href="#timeline">Timeline</a>
         <a href="#skills">Toolbox</a>
         <a href="#experience">Experience</a>
@@ -244,59 +243,11 @@
       </div>
     </section>
 
-    <!-- ═══ 02. VISUAL VAULT: CERTIFICATES & FIELD EXPEDITIONS ═══ -->
-    <section class="sec floating-showcase-sec" id="showcase">
-      <div class="wrap">
-        <div class="sh">
-          <p class="sh-label mono"><span>02</span>Visual Vault</p>
-          <div class="sh-row">
-            <h2>Certificates &amp; Field Expeditions</h2>
-            <div class="floating-controls-hint mono hide-sm">
-              <span class="hint-pill">Hover / Touch for Full Color</span>
-              <span class="hint-pill">Drag to Orbit</span>
-              <span class="hint-pill">Click to Inspect</span>
-            </div>
-          </div>
-          <p class="sh-text">
-            Monochrome atmospheric stream of verified certifications, space engineering milestones, and field expeditions. Artifacts emerge from deep space along dynamic trajectories — hover or tap any artifact to illuminate in full spectrum.
-          </p>
-        </div>
-
-        <!-- 3D Interactive Viewport Container (Strictly Bound Box) -->
-        <div class="floating-viewport" id="floatingViewport" aria-label="Interactive Certificates and Field Showcase">
-          <!-- Multi-Layered Starfield Canvas -->
-          <canvas class="floating-stars" id="floatingStarsCanvas"></canvas>
-
-          <!-- Cosmic Ambient Radial Glow -->
-          <div class="floating-glow" aria-hidden="true"></div>
-
-          <!-- 3D Perspective Camera Stage -->
-          <div class="floating-stage-wrap" id="floatingStageWrap">
-            <div class="floating-stage" id="floatingStage">
-              <!-- Dynamically populated 3D project cards -->
-            </div>
-          </div>
-
-          <!-- Bottom Floating HUD -->
-          <div class="floating-hud mono" aria-hidden="true">
-            <div class="floating-hud-status">
-              <span class="hud-pulse-dot"></span>
-              <span>DYNAMIC STREAM ACTIVE • 12 VERIFIED ARTIFACTS</span>
-            </div>
-            <div class="floating-hud-info">
-              <span>TOUCH FOR SPECTRUM</span>
-              <span>CLICK TO EXPAND</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 3. TIMELINE / CHRONOLOGY SECTION ═══ -->
+    <!-- ═══ 2. TIMELINE / CHRONOLOGY SECTION ═══ -->
     <section class="sec band" id="timeline">
       <div class="wrap">
         <div class="sh">
-          <p class="sh-label mono"><span>03</span>Chronology</p>
+          <p class="sh-label mono"><span>02</span>Chronology</p>
           <div class="sh-row">
             <h2>My engineering journey &amp; milestones</h2>
           </div>
@@ -907,24 +858,6 @@
         <a href="/images/schematic.png" target="_blank" download="CAN-7USAT_Schematic.png" class="btn btn-accent" style="font-size: 0.88rem; padding: 0 18px; height: 38px;">
           Download Full Schematic ↗
         </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ GALLERY LIGHTBOX MODAL ═══ -->
-  <div class="portfolio-modal-overlay" id="galleryModalOverlay">
-    <div class="portfolio-modal-window" style="max-width: 860px;" role="dialog" aria-modal="true">
-      <div class="portfolio-modal-header">
-        <h3 class="portfolio-modal-title" id="galleryModalTitle">Certificate / Milestone Preview</h3>
-        <button type="button" class="portfolio-modal-close" id="galleryModalClose">&times;</button>
-      </div>
-      <div class="portfolio-modal-body" style="text-align: center; background: #04070c; padding: 16px;">
-        <img id="galleryModalImg" src="" alt="Full Preview" style="max-width: 100%; max-height: 72vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);" />
-        <p id="galleryModalDesc" class="mono" style="color: var(--muted); font-size: 0.8rem; margin-top: 12px; line-height: 1.5;"></p>
-      </div>
-      <div class="portfolio-modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
-        <span id="galleryModalTag" class="mono" style="color: var(--accent); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;"></span>
-        <a id="galleryModalDownload" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost mono">Open High-Res ↗</a>
       </div>
     </div>
   </div>
